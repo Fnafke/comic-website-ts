@@ -2,7 +2,7 @@ import Header from "@/Components/Header";
 
 const Home = () => {
   return <>
-    <title>Subvero</title>
+    <title>Introduction | Subvero</title>
     <Header/>
     <h1 className="pl-52">Introduction</h1>
     <p className="pl-52 w-5/6 break-words">
