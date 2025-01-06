@@ -13,7 +13,7 @@ const LoginForm: React.FC = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         let result = true;
 
-        if (email.trim() == "") {
+        if (email.trim() == "" && emailRegex.test(email)) {
             setEmailError("Email cannot be empty.");
             result = false;
         }
