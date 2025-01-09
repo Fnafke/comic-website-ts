@@ -16,11 +16,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/status', (req, res) => {
-    res.json({ message: 'Back-end is running...' });
+    res.json({ message: 'Comic Back-end is running...' });
 });
 
 app.listen(port || 3000, () => {
-    console.log(`Back-end is running on port ${port}.`);
+    console.log(`Comic Back-end is running on port ${port}.`);
 });
 
 // ENDPOINTS
