@@ -8,7 +8,15 @@ type User = {
     role: Role;
 }
 
+type AuthenticationResponse = {
+    token: string,
+    username: string,
+    email: string,
+    role: Role
+}
+
 export {
     User,
-    Role
+    Role,
+    AuthenticationResponse
 }
