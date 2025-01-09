@@ -48,6 +48,10 @@ export class User {
         return this.id;
     };
 
+    getEmail() {
+        return this.email;
+    };
+
     getUsername() {
         return this.username;
     };
