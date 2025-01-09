@@ -5,8 +5,12 @@ import bcrypt from 'bcrypt'
 import generateJwtToken from "../util/jwt";
 
 
-const getAllUsers = async(): Promise<User[]> => {
-    return await userDb.getAllUsers();
+const getAllUsers = async(role: string): Promise<User[]> => {
+    if (role == 'Admin'){
+        return await userDb.getAllUsers();
+    } else {
+        throw new Error("You are unauthorized to perform this action.")
+    }
 }
 
 const createUser = async({username, email, password}: UserInput): Promise<User> => {

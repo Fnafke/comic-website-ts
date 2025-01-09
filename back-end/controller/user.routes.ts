@@ -5,9 +5,10 @@ import {User as UserInput} from '../types'
 const userRouter = express.Router();
 
 // GET REQUESTS
-userRouter.get('/', async(req: Request, res: Response, next: NextFunction) => {
+userRouter.get('/', async(req: Request & {auth?: any}, res: Response, next: NextFunction) => {
     try {
-        const users = await userService.getAllUsers();
+        const {role} =  req.auth;
+        const users = await userService.getAllUsers(role);
         res.status(200).json(users);
     } catch (error: any) {
         res.status(400).json({status: "Error", errorMessage: error.message})
