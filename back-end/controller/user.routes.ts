@@ -11,9 +11,18 @@ userRouter.get('/', async(req: Request & {auth?: any}, res: Response, next: Next
         const users = await userService.getAllUsers(role);
         res.status(200).json(users);
     } catch (error: any) {
-        res.status(400).json({status: "Error", errorMessage: error.message})
+        res.status(400).json({status: "Error", errorMessage: error.message});
     }
 });
+
+userRouter.get('/:email', async(req: Request, res: Response, next: NextFunction) => {
+    try {
+        const user = await userService.getUserByEmail(req.params.email);
+        return user;
+    } catch (error: any) {
+        res.status(400).json({status: "Error", errorMessage: error.message});
+    }
+})
 
 // POST REQUESTS
 userRouter.post('/signup', async(req: Request, res: Response, next: NextFunction) => {

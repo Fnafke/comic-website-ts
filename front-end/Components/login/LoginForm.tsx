@@ -1,6 +1,10 @@
+import userService from "@/services/UserService";
+import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
+import { json } from "stream/consumers";
 
 const LoginForm: React.FC = () => {
+    const router = useRouter();
     //Variables
     const [username, setUsername] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -43,7 +47,7 @@ const LoginForm: React.FC = () => {
             result = false;
         }
 
-        if (email.trim() == "" || emailRegex.test(email)) {
+        if (email.trim() == "" || !emailRegex.test(email)) {
             setEmailError("Email cannot be empty.");
             result = false;
         }
@@ -61,18 +65,62 @@ const LoginForm: React.FC = () => {
         setPasswordError("");
     }
 
-    const handleLogin = (e: FormEvent) => {
+    const handleLogin = async(e: FormEvent) => {
         e.preventDefault();
 
         clearErrors()
         if (!validateLogin()) return;
+
+        const response = await userService.logIn(email, password);
+        if (!response) {
+            setEmailError("Email or password is wrong.");
+            return;
+        }
+
+        localStorage.setItem('loggedInUser', JSON.stringify({
+            token: response.token,
+            username: response.username,
+            email: response.email,
+            role: response.role
+        }));
+
+        setStatus(`Succesfully logged in! Redirecting you to the homepage in 2 seconds...`);
+        setTimeout(() => {
+            setStatus(`Succesfully logged in! Redirecting you to the homepage in 1 second...`);
+        }, 1000);
+        setTimeout(()=> {
+            router.push('/');
+        }, 2000);
+
     }
 
-    const handleRegister = (e: FormEvent) => {
+    const handleRegister = async(e: FormEvent) => {
         e.preventDefault();
 
         clearErrors();
         if (!validateRegister()) return;
+
+        const response = await userService.createUser(username, email, password);
+        if (!response) {
+            setEmailError("A user already exists with this email.");
+            return;
+        }
+
+        localStorage.setItem("loggedInUser", JSON.stringify({
+            token: response.token,
+            name: response.name,
+            email: response.email,
+            role: response.role
+          }));
+
+          setStatus(`Succesfully registered! Redirecting you to the homepage in 2 seconds...`);
+          setTimeout(() => {
+              setStatus(`Succesfully registered! Redirecting you to the homepage in 1 second...`);
+          }, 1000);
+          setTimeout(()=> {
+              router.push('/');
+          }, 2000);
+
     }
 
     return (
@@ -99,12 +147,13 @@ const LoginForm: React.FC = () => {
                 </div>
                 {emailError && <p className="text-red-600">{emailError}</p>}
                 {passwordError && <p className="text-red-600">{passwordError}</p>}
+                {status && <p className="text-green-600 text-sm">{status}</p>}
             </form>
         </div>}
         
         {!isLogin && <div className="pt-36">
             <form 
-                onSubmit={(e) => handleLogin(e)} 
+                onSubmit={(e) => handleRegister(e)} 
                 className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-blue-400 rounded-lg shadow-md">
                 <label className="mb-2 text-white">
                     Username
@@ -130,6 +179,7 @@ const LoginForm: React.FC = () => {
                 {usernameError && <p className="text-red-600">{usernameError}</p>}
                 {emailError && <p className="text-red-600">{emailError}</p>}
                 {passwordError && <p className="text-red-600">{passwordError}</p>}
+                {status && <p className="text-green-600 text-sm">{status}</p>}
             </form>
         </div>}
         </>
