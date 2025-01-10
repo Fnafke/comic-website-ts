@@ -13,7 +13,17 @@ const getAllUsers = async(role: string): Promise<User[]> => {
     }
 }
 
-const createUser = async({username, email, password}: UserInput): Promise<User> => {
+const getUserByEmail = async(email: string): Promise<User> => {
+    const user = await userDb.getUserByEmail(email);
+    
+    if (!user) {
+        throw new Error("User with this email does not exist.");
+    }
+
+    return user;
+}
+
+const createUser = async({username, email, password}: UserInput): Promise<AuthenticationResponse> => {
     const existing_user = await userDb.getUserByEmail(email);
 
     if (existing_user) {
@@ -23,7 +33,17 @@ const createUser = async({username, email, password}: UserInput): Promise<User> 
     const hashedPassword = await bcrypt.hash(password, 12)
     const user = new User({username, email, password: hashedPassword, role: 'User'})
 
-    return await userDb.createUser(user);
+    await userDb.createUser(user);
+
+    return {
+        
+        token: generateJwtToken(email, user.getRole()),
+        username: user.getUsername(),
+        email: user.getEmail(),
+        role: user.getRole(),
+    
+    }
+
 
 }
 
@@ -48,6 +68,7 @@ const authenticate = async({email, password}: UserInput): Promise<Authentication
 
 export default {
     getAllUsers,
+    getUserByEmail,
     createUser,
     authenticate
 }
