@@ -24,7 +24,7 @@ export class User {
             throw new Error("Domain Error: Username must not be empty")
         };
         
-        if (!user.email || user.email.trim() == "" || emailRegex.test(user.email)) {
+        if (!user.email || user.email.trim() == "" || !emailRegex.test(user.email)) {
             throw new Error("Domain Error: Email must be correct format.")
         };
 
