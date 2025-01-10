@@ -1,8 +1,18 @@
 import Link from "next/link";
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [loggedInUser, setLoggedInUser] = useState<string | null>(null);
+
+    useEffect(() => {
+      setLoggedInUser(localStorage.getItem('loggedInUser'));
+    }, []);
+
+    const handleLogOut = () => {
+      localStorage.removeItem('loggedInUser');
+      setLoggedInUser(null);
+    };
 
     const handleOpen = () => {
         setIsOpen(!isOpen)
@@ -33,9 +43,12 @@ const Header: React.FC = () => {
             <Link href={'/'} className="hover:text-white">
               Draft Chapters
             </Link>
-            <Link href={'/login'} className="hover:text-white">
+            {!loggedInUser && <Link href={'/login'} className="hover:text-white">
               Login
-            </Link>
+            </Link>}
+            {loggedInUser && <Link onClick={() => {handleLogOut(), handleOpen()}} href={'/'} className="hover:text-white">
+              Log out
+            </Link>}
           </div>
         </div>
       );
