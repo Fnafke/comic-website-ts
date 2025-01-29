@@ -21,10 +21,26 @@ const Header: React.FC = () => {
     return (
         <div className="flex">
           <button
-            className="bg-red-400 h-screen w-20 flex items-start justify-center fixed z-50"
+            className="bg-neutral-950 h-screen w-20 flex items-start justify-center fixed z-50 outline outline-1 outline-white"
             onClick={handleOpen}
           >
-            <p className="pt-9">{isOpen ? "X" : "="}</p>
+          <div className="pt-9 space-y-1">
+            <span
+              className={`block h-1 w-10 bg-white transition-transform duration-300 ${
+                isOpen ? 'rotate-45 translate-y-2' : ''
+              }`}
+            ></span>
+            <span
+              className={`block h-1 w-10 bg-white transition-opacity duration-300 ${
+                isOpen ? 'opacity-0' : ''
+              }`}
+            ></span>
+            <span
+              className={`block h-1 w-10 bg-white transition-transform duration-300 ${
+                isOpen ? '-rotate-45 -translate-y-2' : ''
+              }`}
+            ></span>
+          </div>
           </button>
           <div
             className={`fixed inset-0  bg-slate-600 text-4xl flex justify-center items-center gap-12 transition-all duration-500 ${
