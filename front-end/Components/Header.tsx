@@ -43,26 +43,26 @@ const Header: React.FC = () => {
           </div>
           </button>
           <div
-            className={`fixed inset-0  bg-slate-600 text-4xl flex justify-center items-center gap-12 transition-all duration-500 ${
+            className={`fixed inset-0  bg-black text-4xl flex justify-center items-center gap-12 transition-all duration-500 ${
               isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
             }`}
           >
-            <Link onClick={handleOpen} href={'/'} className="hover:text-white">
+            <Link onClick={handleOpen} href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Introduction
             </Link>
-            <Link href={'/'} className="hover:text-white">
+            <Link href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Characters
             </Link>
-            <Link href={'/'} className="hover:text-white">
+            <Link href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Chapters
             </Link>
-            <Link href={'/'} className="hover:text-white">
+            <Link href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Draft Chapters
             </Link>
-            {!loggedInUser && <Link href={'/login'} className="hover:text-white">
+            {!loggedInUser && <Link href={'/login'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Login
             </Link>}
-            {loggedInUser && <Link onClick={() => {handleLogOut(), handleOpen()}} href={'/'} className="hover:text-white">
+            {loggedInUser && <Link onClick={() => {handleLogOut(), handleOpen()}} href={'/'} className="font-noto-serif-jp font-bold text-blue-800 hover:text-white transition-all ease-in-out">
               Log out
             </Link>}
           </div>
