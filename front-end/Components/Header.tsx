@@ -21,7 +21,7 @@ const Header: React.FC = () => {
     return (
         <div className="flex">
           <button
-            className="bg-neutral-950 h-screen w-20 flex items-start justify-center fixed z-50 outline outline-1 outline-white"
+            className="bg-black h-screen w-20 flex items-start justify-center fixed z-50 outline outline-1 outline-white"
             onClick={handleOpen}
           >
           <div className="pt-9 space-y-1">

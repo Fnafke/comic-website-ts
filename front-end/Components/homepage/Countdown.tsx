@@ -37,7 +37,7 @@ const Countdown: React.FC<Props> = ({date}: Props) => {
     }, [currenttime]);
 
     return <>
-        <div className="flex pl-52">
+        <div className="flex pl-52 text-white">
             <p>{countdown.days}:{countdown.hours}:{countdown.minutes}:{countdown.seconds}</p>
         </div>
     </>
