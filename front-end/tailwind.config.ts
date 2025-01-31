@@ -12,6 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'noto-serif-jp': ['Noto Serif JP', 'serif'],
+        abril: ['Abril Fatface', 'serif'],
+        ubuntu: ['Ubuntu', 'sans-serif'],
+      }
     },
   },
   plugins: [],
