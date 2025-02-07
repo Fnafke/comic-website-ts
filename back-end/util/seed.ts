@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 const main = async() => {
     await prisma.user.deleteMany();
+    await prisma.chapter.deleteMany();
 
     const admin = await prisma.user.create({
         data: {
@@ -12,6 +13,14 @@ const main = async() => {
             email: "admin@email.com",
             password: await bcrypt.hash('admin123',12),
             role: 'admin'
+        }
+    })
+
+    const chapterTest = await prisma.chapter.create({
+        data: {
+            chapterNumber: 0,
+            chapterDescription: 'This is a test',
+            chapterImagesHash: '4tJJOS4'
         }
     })
 }

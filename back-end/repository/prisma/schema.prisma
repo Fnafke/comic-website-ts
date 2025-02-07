@@ -14,3 +14,10 @@ model User {
     password String
     role     String
 }
+
+model Chapter {
+    id                 Int    @id @default(autoincrement())
+    chapterNumber      Int    @unique
+    chapterDescription String
+    chapterImagesHash  String
+}
