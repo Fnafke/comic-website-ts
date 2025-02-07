@@ -15,9 +15,14 @@ model User {
     role     String
 }
 
+//ChapterNumber is what number the chapter is
+//ChapterTitle is the name of the chapter itself
+//ChapterDescription is the description of the chapter
+//ChapterImagesHash is the unique characters in the imgur link which we'll be able to get by using their API
 model Chapter {
     id                 Int    @id @default(autoincrement())
     chapterNumber      Int    @unique
+    chapterTitle       String
     chapterDescription String
     chapterImagesHash  String
 }

@@ -19,6 +19,7 @@ const main = async() => {
     const chapterTest = await prisma.chapter.create({
         data: {
             chapterNumber: 0,
+            chapterTitle: 'Test',
             chapterDescription: 'This is a test',
             chapterImagesHash: '4tJJOS4'
         }

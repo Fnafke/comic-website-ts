@@ -13,6 +13,7 @@ CREATE TABLE "User" (
 CREATE TABLE "Chapter" (
     "id" SERIAL NOT NULL,
     "chapterNumber" INTEGER NOT NULL,
+    "chapterTitle" TEXT NOT NULL,
     "chapterDescription" TEXT NOT NULL,
     "chapterImagesHash" TEXT NOT NULL,
 
