@@ -3,6 +3,15 @@ import chapterService from '../service/chapter.service';
 
 const chapterRouter = express.Router()
 
+chapterRouter.get('/', async(req: Request, res: Response, next: NextFunction) => {
+    try {
+        const chapters = await chapterService.getAllChapters();
+        res.status(200).json(chapters);
+    } catch (error: any) {
+        res.status(400).json({status: 'Error', errorMessage: error.message})
+    }
+})
+
 chapterRouter.get('/:chapterNumber', async(req: Request, res: Response, next: NextFunction) => {
     try {
         const chapter = await chapterService.getChapter(parseInt(req.params.chapterNumber));
@@ -11,3 +20,5 @@ chapterRouter.get('/:chapterNumber', async(req: Request, res: Response, next: Ne
         res.status(400).json({status: 'Error', errorMessage: error.message})
     }
 })
+
+export default chapterRouter;
