@@ -2,12 +2,11 @@ import { Chapter } from "@/types";
 
 const getAllChapters = async(chapterType: string): Promise<Chapter[]> => {
     try {
-        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/chapters', {
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + `/chapters/${chapterType}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({chapterType})
+            }
         });
         return await response.json()
     } catch (error) {
