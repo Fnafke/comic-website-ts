@@ -1,13 +1,13 @@
 import { Chapter } from "@/types";
 
-const getAllDraftChapters = async(): Promise<Chapter[]> => {
+const getAllChapters = async(chapterType: string): Promise<Chapter[]> => {
     try {
         const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/chapters', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({chapterType: 'Draft'})
+            body: JSON.stringify({chapterType})
         });
         return await response.json()
     } catch (error) {
@@ -17,5 +17,5 @@ const getAllDraftChapters = async(): Promise<Chapter[]> => {
 }
 
 export default {
-    getAllDraftChapters
+    getAllChapters
 }
