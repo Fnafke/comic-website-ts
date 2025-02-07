@@ -1,9 +1,13 @@
 import { Chapter } from "../model/chapter"
 import database from "../util/database"
 
-const getAllChapters = async(): Promise<Chapter[]> => {
+const getAllChapters = async(chapterType: string): Promise<Chapter[]> => {
     try {
-        const chapterPrismas = await database.chapter.findMany();
+        const chapterPrismas = await database.chapter.findMany({
+            where: {
+                chapterType: chapterType
+            }
+        });
         return chapterPrismas.map((chapterPrisma) => Chapter.from(chapterPrisma));
     } catch (error) {
         console.error(error);
@@ -11,17 +15,18 @@ const getAllChapters = async(): Promise<Chapter[]> => {
     }
 }
 
-const getChapter = async(chapter_number: number): Promise<Chapter | null> => {
+const getChapter = async(chapterNumber: number, chapterType: string): Promise<Chapter | null> => {
     try {
-        const chapterPrisma = await database.chapter.findUnique({
+        const chapterPrisma = await database.chapter.findFirst({
             where: {
-                chapterNumber: chapter_number
+                chapterNumber: chapterNumber,
+                chapterType: chapterType
             }
         })
         return chapterPrisma ? Chapter.from(chapterPrisma) : null;
     } catch (error) {
         console.error(error);
-        throw new Error(`Database error: Could not get certain chapter with number ${chapter_number}, check server logs!`)
+        throw new Error(`Database error: Could not get certain chapter with number ${chapterNumber}, check server logs!`)
     }
 }
 
