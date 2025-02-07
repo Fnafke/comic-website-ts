@@ -7,4 +7,12 @@ export type User = {
 
 }
 
+export type Chapter = {
+    id?: number;
+    chapterNumber: number;
+    chapterTitle: string;
+    chapterDescription: string;
+    chapterImagesHash: string;
+}
+
 export type Role = 'Admin' | 'User';
