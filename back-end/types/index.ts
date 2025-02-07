@@ -15,8 +15,16 @@ type AuthenticationResponse = {
     role: Role
 }
 
+type Chapter = {
+    id?: number;
+    chapterNumber: number;
+    chapterDescription: string;
+    chapterImagesHash: string;
+}
+
 export {
     User,
     Role,
-    AuthenticationResponse
+    AuthenticationResponse,
+    Chapter
 }
