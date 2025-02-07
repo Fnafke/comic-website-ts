@@ -7,6 +7,7 @@ import swaggerUi from 'swagger-ui-express';
 import helmet from 'helmet';
 import userRouter from './controller/user.routes';
 import { expressjwt } from 'express-jwt';
+import chapterRouter from './controller/chapter.routes';
 
 const app = express();
 dotenv.config();
@@ -18,7 +19,7 @@ app.use(
         secret: process.env.JWT_SECRET || 'default_secret',
         algorithms: ['HS256'],
     }).unless({
-        path: ["/api-docs", /^\/api-docs\/.*/, "/users/login", "/users/signup", "/status"],
+        path: ["/api-docs", /^\/api-docs\/.*/, "/users/login", "/users/signup", '/chapters', "/status"],
     })
 )
 
@@ -40,3 +41,4 @@ app.listen(port || 3000, () => {
 
 // ENDPOINTS
 app.use('/users', userRouter);
+app.use('/chapters', chapterRouter)
