@@ -126,7 +126,7 @@ const LoginForm: React.FC = () => {
     return (
         <>
         {isLogin && <div className="pt-44">
-            <form onSubmit={(e) => handleLogin(e)} className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-blue-400 rounded-lg shadow-md">
+            <form onSubmit={(e) => handleLogin(e)} className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-black outline outline-white rounded-lg shadow-md">
                 <label className="mb-2 text-white">
                     Email
                 </label>
@@ -135,13 +135,13 @@ const LoginForm: React.FC = () => {
                     Password
                 </label>
                 <input type="password" className="mb-4 p-2 rounded border border-gray-300" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                <button type='submit' className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700">Login</button>
+                <button type='submit' className="p-2 bg-blue-800 text-white rounded hover:bg-blue-900">Login</button>
                 
                 <div className="flex gap-2 justify-center p-3">
-                    <p className="mt-auto ml-auto mb-auto mr-2">
+                    <p className="mt-auto ml-auto mb-auto mr-2 text-white">
                         Don't have an account?
                     </p>
-                    <button onClick={() => setIsLogin(false)} className="mt-auto ml-2 mr-auto mb-auto p-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                    <button onClick={() => setIsLogin(false)} className="mt-auto ml-2 mr-auto mb-auto p-2 bg-blue-800 text-white rounded hover:bg-blue-900">
                         Register
                     </button>
                 </div>
@@ -154,7 +154,7 @@ const LoginForm: React.FC = () => {
         {!isLogin && <div className="pt-36">
             <form 
                 onSubmit={(e) => handleRegister(e)} 
-                className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-blue-400 rounded-lg shadow-md">
+                className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-black outline outline-white rounded-lg shadow-md">
                 <label className="mb-2 text-white">
                     Username
                 </label>
@@ -167,12 +167,12 @@ const LoginForm: React.FC = () => {
                     Password
                 </label>
                 <input type="password" className="mb-4 p-2 rounded border border-gray-300" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                <button type='submit' className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700">Register</button>
+                <button type='submit' className="p-2 bg-blue-800 text-white rounded hover:bg-blue-900">Register</button>
                 <div className="flex gap-2 justify-center p-3">
-                    <p className="mt-auto ml-auto mb-auto mr-2">
+                    <p className="mt-auto ml-auto mb-auto mr-2 text-white">
                         Already have an account?
                     </p>
-                    <button onClick={() => setIsLogin(true)} className="mt-auto ml-2 mr-auto mb-auto p-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                    <button onClick={() => setIsLogin(true)} className="mt-auto ml-2 mr-auto mb-auto p-2 bg-blue-800 text-white rounded hover:bg-blue-900">
                         Login
                     </button>
                 </div>
