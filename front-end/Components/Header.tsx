@@ -63,7 +63,7 @@ const Header: React.FC = () => {
               Login
             </Link>}
             {loggedInUser && <Link onClick={() => {handleLogOut(), handleOpen()}} href={'/'} className="font-noto-serif-jp font-bold text-blue-800 hover:text-white transition-all ease-in-out">
-              Log out, {JSON.parse(loggedInUser).username}
+              {JSON.parse(loggedInUser).username.length < 10 && <>Log out, {JSON.parse(loggedInUser).username}</> || <>Log out, {JSON.parse(loggedInUser).username.substring(0,9)}...</>}
             </Link>}
           </div>
         </div>
