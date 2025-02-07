@@ -13,6 +13,7 @@ export type Chapter = {
     chapterTitle: string;
     chapterDescription: string;
     chapterImagesHash: string;
+    chapterType: string;
 }
 
 export type Role = 'Admin' | 'User';
