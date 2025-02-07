@@ -16,12 +16,10 @@ CREATE TABLE "Chapter" (
     "chapterTitle" TEXT NOT NULL,
     "chapterDescription" TEXT NOT NULL,
     "chapterImagesHash" TEXT NOT NULL,
+    "chapterType" TEXT NOT NULL,
 
     CONSTRAINT "Chapter_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Chapter_chapterNumber_key" ON "Chapter"("chapterNumber");

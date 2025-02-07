@@ -18,8 +18,10 @@ type AuthenticationResponse = {
 type Chapter = {
     id?: number;
     chapterNumber: number;
+    chapterTitle: string;
     chapterDescription: string;
     chapterImagesHash: string;
+    chapterType: string
 }
 
 export {

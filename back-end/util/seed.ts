@@ -21,7 +21,8 @@ const main = async() => {
             chapterNumber: 0,
             chapterTitle: 'Test',
             chapterDescription: 'This is a test',
-            chapterImagesHash: '4tJJOS4'
+            chapterImagesHash: '4tJJOS4',
+            chapterType: 'Draft'
         }
     })
 }
