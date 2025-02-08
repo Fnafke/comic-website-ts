@@ -9,7 +9,7 @@ const draftChapters: React.FC = () => {
     <title>Draft Chapters | Subvero</title>
     <Header/>
     <Countdown date={new Date(2025, 7, 7, 0, 0, 0)}/>
-    <h1 className="pl-52 text-white text-4xl font-noto-serif-jp font-bold">DRAFT CHAPTERS</h1>
+    <h1 className="text-center text-white text-4xl font-noto-serif-jp font-bold p-5">DRAFT CHAPTERS</h1>
     <ChaptersOverview chapterType={'Draft'}/>
     <Footer/>
   </>
