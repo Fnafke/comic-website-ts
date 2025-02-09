@@ -8,7 +8,7 @@
 
 
 :root {
-    @apply bg-[url(../public/images/homepage/background-image.png)] bg-cover bg-center bg-no-repeat;
+    @apply bg-[url(../public/images/homepage/background-image-2.png)] bg-cover;
 }
 
 html, body {
