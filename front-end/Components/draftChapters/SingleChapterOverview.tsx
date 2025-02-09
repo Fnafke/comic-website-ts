@@ -32,6 +32,9 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
     },[])
 
     return <>
+        <div className="flex justify-center text-black">
+            <button className="bg-white" type='button' onClick={() => getChapterImages(chapter)}>Check</button>
+        </div>
     </>
 }
 
