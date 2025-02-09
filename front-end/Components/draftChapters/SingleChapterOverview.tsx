@@ -34,6 +34,9 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
     },[])
 
     return <>
+        <h1 className="text-center text-white text-4xl font-noto-serif-jp font-bold p-5">Chapter {chapter?.chapterNumber}</h1>
+        <h2 className="text-center text-white text-2xl font-noto-serif-jp font-bold p-5">Chapter Description:</h2>
+        <p className="text-center text-white text-l font-noto-serif-jp p-5">{chapter?.chapterDescription}</p>
         <table className="m-auto">
             <thead>
                 <tr>
@@ -43,7 +46,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
             <tbody>
                 {images && images.map((image, idx) => (
                     <tr key={idx}>
-                        <td>
+                        <td className="pb-5">
                             <img src={image.link} width={700} alt="" />
                         </td>
                     </tr>
