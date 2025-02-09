@@ -1,4 +1,4 @@
-import { Chapter } from "@/types";
+import { Chapter, ImgurResponse } from "@/types";
 
 const getAllChapters = async(chapterType: string): Promise<Chapter[]> => {
     try {
@@ -31,7 +31,7 @@ const getChapter = async(chapterType: string, chapterNumber: number): Promise<Ch
 }
 
 
-const fetchImages = async(chapterImagesHash: string) => {
+const fetchImages = async(chapterImagesHash: string): Promise<ImgurResponse> => {
     try {
         const response = await fetch(`https://api.imgur.com/3/album/${chapterImagesHash}/images`, {
             method: 'GET',
