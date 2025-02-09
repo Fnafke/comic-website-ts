@@ -30,37 +30,14 @@ const getChapter = async(chapterType: string, chapterNumber: number): Promise<Ch
     }
 }
 
-const getAccessToken = async() => {
-    const clientId = `${process.env.NEXT_PUBLIC_CLIENT_ID}`;
-    const clientSecret = `${process.env.NEXT_PUBLIC_CLIENT_SECRET}`;
-    const refreshToken = `${process.env.NEXT_PUBLIC_REFRESH_TOKEN}`;
-
-    const response = await fetch("https://api.imgur.com/oauth2/token", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-            client_id: clientId,
-            client_secret: clientSecret,
-            refresh_token: refreshToken,
-            grant_type: "refresh_token"
-        })
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-        throw new Error(`Error fetching token: ${data.error}`);
-    }
-    return data.access_token;
-};
 
 const fetchImages = async(chapterImagesHash: string) => {
     try {
-        const accessToken = await getAccessToken();
         const response = await fetch(`https://api.imgur.com/3/album/${chapterImagesHash}/images`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${accessToken}`,
+                "Authorization": `Client-ID ${process.env.NEXT_PUBLIC_CLIENT_ID}`,
             }
         });
         return await response.json()
