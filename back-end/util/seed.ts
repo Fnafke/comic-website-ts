@@ -25,6 +25,16 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter1 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 1,
+            chapterTitle: 'Part 1: The World vs. Made In Heaven',
+            chapterDescription: "The fierce battle between them begins and... concludes? What is there more we don't know of?",
+            chapterImagesHash: '88RpG1b',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
