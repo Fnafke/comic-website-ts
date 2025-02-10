@@ -3,10 +3,11 @@ import useInterval from "use-interval";
 
 type Props = {
     date: Date,
+    chapterNumber: number;
 }
 
 
-const Countdown: React.FC<Props> = ({date}: Props) => {
+const Countdown: React.FC<Props> = ({date, chapterNumber}: Props) => {
     const [currenttime, setCurrentTime] = useState<Date>(new Date());
     const [countdown, setCountdown] = useState<{days: string | number, hours: string | number, minutes: string | number, seconds: string | number}>({days: 0, hours: 0, minutes: 0, seconds: 0});
     const [statusMessage, setStatusMessage] = useState<string>('');
@@ -44,7 +45,7 @@ const Countdown: React.FC<Props> = ({date}: Props) => {
 
     return <>
         <div className="text-white text-center font-noto-serif-jp text-6xl font-bold">
-            {statusMessage? statusMessage : <p>{countdown.days}:{countdown.hours}:{countdown.minutes}:{countdown.seconds}</p>}
+            Chapter {chapterNumber} releases in: {statusMessage? statusMessage : <p>{countdown.days}:{countdown.hours}:{countdown.minutes}:{countdown.seconds}</p>}
         </div>
     </>
 }
