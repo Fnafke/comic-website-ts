@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     }
 
     return (
-        <div className="flex">
+        <div className="flex z-50 fixed">
           <button
             className="bg-black h-screen w-20 flex items-start justify-center fixed z-50 outline outline-1 outline-white"
             onClick={handleOpen}
