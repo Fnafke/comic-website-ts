@@ -1,8 +1,7 @@
 import ChapterService from "@/services/ChapterService";
 import { Chapter, ImgurImage, ImgurResponse } from "@/types";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import useSWR, { mutate } from "swr";
-import useInterval from "use-interval";
 
 type Props = {
     chapterType: string;
@@ -10,8 +9,11 @@ type Props = {
 }
 
 const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Props) => {
+    const router = useRouter();
+
     const [chapter, setChapter] = useState<Chapter>();
     const [images, setImages] = useState<ImgurImage[]>();
+    const [isLatest, setIsLatest] = useState<boolean>(false);
     
     const getChapter = async(chapterNumber: number, chapterType: string): Promise<Chapter> => {
         const chapter = await ChapterService.getChapter(chapterType, chapterNumber);
@@ -28,10 +30,33 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
         }
         return Promise.resolve([])
     }
+
+    const checkIsLatest = async() => {
+        const chapters = await ChapterService.getAllChapters(chapterType);
+        if (chapterNumber + 1 == chapters.length) {
+            setIsLatest(true);
+        }
+
+    }
     
     useEffect(() => {
         getChapter(chapterNumber, chapterType);
+        checkIsLatest()
     },[])
+
+    const sendPrevious = () => {
+        const path = router.asPath.slice(0, -1);
+        router.push(`${path}${chapterNumber - 1}`).then(() => {
+            router.reload();
+        });
+    }
+
+    const sendNext = () => {
+        const path = router.asPath.slice(0, -1);
+        router.push(`${path}${chapterNumber + 1}`).then(() => {
+            router.reload();
+        });
+    }
 
     return <>
         <h1 className="text-center text-white text-4xl font-noto-serif-jp font-bold p-5">Chapter {chapter?.chapterNumber}</h1>
@@ -54,6 +79,18 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
             </tbody>
 
         </table>
+        <div className="flex justify-center text-white gap-52 p-10">
+            {chapterNumber != 0 && <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={sendPrevious}
+            >
+                Previous Chapter
+            </button>}
+            {!isLatest && <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={sendNext}
+            >
+                Next Chapter
+            </button>}
+        </div>
     </>
 }
 
