@@ -35,6 +35,16 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter2 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 2,
+            chapterTitle: 'Part 2: The World vs. Killer Queen',
+            chapterDescription: "2 years have passed since a person with powers attacked our main protagonist? Who is he and who is he working with? What do they want?",
+            chapterImagesHash: '9qeLKCL',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
