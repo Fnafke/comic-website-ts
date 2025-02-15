@@ -45,6 +45,16 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter3 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 3,
+            chapterTitle: 'The Intruder',
+            chapterDescription: "Jotaro gets ambushed by another person of Dio's organisation, but he escapes and has acquired the coordinates to a hidden pyramid. On his way he gets ambushed again. What's next for him?",
+            chapterImagesHash: 'hHjXfWs',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
