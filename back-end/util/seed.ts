@@ -55,6 +55,36 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter4 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 4,
+            chapterTitle: 'Zaraki Kenpachi',
+            chapterDescription: "Jotaro and Shinji are on their way to retrieve the Reqiuem Arrow, but, they realise that they're not alone.",
+            chapterImagesHash: 'lZlvQNO',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter5 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 5,
+            chapterTitle: 'Bankai',
+            chapterDescription: "In the middle of grief, Shinji Hirako continues his battle with Zaraki Kenpachi and seems to have finally gotten the advantage on Zaraki. But is Shinji's power enough to stop that monster?",
+            chapterImagesHash: 'nUxQYR4',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter6 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 6,
+            chapterTitle: 'Gojo Satoru',
+            chapterDescription: "After a hard fought battle, Gojo Satoru mixed his red and blue abilities to form his maximum ability called 'Purple'. Is this the end for Shinji Hirako?",
+            chapterImagesHash: 'qwpda49',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
