@@ -85,6 +85,36 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter7 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 7,
+            chapterTitle: 'The Resurrection',
+            chapterDescription: "After defeating Gojo Satoru, Jotaro Kujo and Shinji Hirako made their way to the hidden garden on the other side of the pyramid, where they are confronted by Diavolo holding the Reqiuem Arrow. What is his goal?",
+            chapterImagesHash: 'SMoG2ek',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter8 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 8,
+            chapterTitle: 'Made In Heaven',
+            chapterDescription: "As planned by Dio Brando himself, his resurrection has been realised. With the Reqiuem Arrow in his grasp, he's sure to become unstoppable.",
+            chapterImagesHash: 'DqSGQhl',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter9 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 9,
+            chapterTitle: 'The World of Stopped Time',
+            chapterDescription: "Unbound by the seals on his body, Dio Brando is now able to freely use all his power and the 3 of them seem to be no match for him. How are they going to stop him?",
+            chapterImagesHash: 'smlayNs',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
