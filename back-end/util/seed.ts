@@ -115,6 +115,47 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter10 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 10,
+            chapterTitle: 'Shinji Hirako',
+            chapterDescription: "Dio obtained the power to put time to a halt and he wants to make sure no one makes it past the end.",
+            chapterImagesHash: 'zLy1ClX',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter11 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 11,
+            chapterTitle: 'Two centimeters',
+            chapterDescription: "Shinji remembers what happened to him and his friends and has entered his True Bankai form. Unable to control it, he jumps at Dio. Is he finally going to defeat him?",
+            chapterImagesHash: '0EIGpzy',
+            chapterType: 'Draft'
+        }
+    })
+
+    
+    const draftChapter12 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 12,
+            chapterTitle: 'The sole survivor',
+            chapterDescription: "Dio defeated everyone... or did he? There is one person standing, one desperate attempt left to defeat this god like being.",
+            chapterImagesHash: 'CRCj7SM',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter13 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 13,
+            chapterTitle: 'Hell',
+            chapterDescription: "Dio's stand Made In Heaven has evolved and is able to transport all of humanity to another universe, but before doing that, he wants to get rid of Jotaro.",
+            chapterImagesHash: 'tahIXvo',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
