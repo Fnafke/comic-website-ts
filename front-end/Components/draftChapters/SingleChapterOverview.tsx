@@ -45,15 +45,17 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
     },[])
 
     const sendPrevious = () => {
-        const path = router.asPath.slice(0, -1);
-        router.push(`${path}${chapterNumber - 1}`).then(() => {
+        const path = router.asPath.substring(0, router.asPath.lastIndexOf('/') + 1);
+        const chap: number = chapterNumber - 1;
+        router.push(`${path}${chap}`).then(() => {
             router.reload();
         });
     }
 
     const sendNext = () => {
-        const path = router.asPath.slice(0, -1);
-        router.push(`${path}${chapterNumber + 1}`).then(() => {
+        const path = router.asPath.substring(0, router.asPath.lastIndexOf('/') + 1);
+        const chap: number = chapterNumber + 1;
+        router.push(`${path}${chap}`).then(() => {
             router.reload();
         });
     }
