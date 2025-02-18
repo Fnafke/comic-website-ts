@@ -142,7 +142,7 @@ const main = async() => {
             chapterNumber: 12,
             chapterTitle: 'The sole survivor',
             chapterDescription: "Dio defeated everyone... or did he? There is one person standing, one desperate attempt left to defeat this god like being.",
-            chapterImagesHash: 'CRCj7SM',
+            chapterImagesHash: 'lNDdQfp',
             chapterType: 'Draft'
         }
     })
