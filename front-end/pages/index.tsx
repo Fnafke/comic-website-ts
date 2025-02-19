@@ -1,3 +1,4 @@
+import FadeInSection from "@/Components/FadeInSection";
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Countdown from "@/Components/homepage/Countdown";
@@ -6,11 +7,33 @@ const Home = () => {
   return <>
     <title>Introduction | Subvero</title>
     <Header/>
-    <Countdown date={new Date(2025, 7, 7, 0, 0, 0)}/>
-    <h1 className="pl-52 text-white text-4xl font-noto-serif-jp font-bold">INTRODUCTION</h1>
-    <p className="pl-52 w-5/6 break-words text-white">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quo necessitatibus? Dolor, pariatur excepturi, autem, sed nisi deserunt quidem soluta molestiae tempore praesentium nemo quos. Voluptatibus dolor ducimus id possimus ipsum odit eligendi quia, recusandae ad unde suscipit maiores similique eveniet! Cum maxime sunt blanditiis laboriosam distinctio nisi officia accusamus totam ut adipisci. Dolorem ratione corrupti quibusdam obcaecati totam officia quaerat asperiores, laborum blanditiis, dolor quo mollitia aliquid, quod temporibus eos illum corporis fuga at assumenda a quia nam laudantium rerum? Amet, laboriosam sequi? Voluptatibus sit aperiam dolore debitis voluptatum neque eveniet alias nesciunt iure? Amet facilis suscipit autem! Quam animi consectetur placeat officia veritatis aliquid, omnis similique autem fuga veniam earum obcaecati! Cum quam fugiat consequatur, repellendus nostrum expedita, odit rem vero nesciunt quia mollitia nulla repudiandae laborum asperiores numquam dolore minima blanditiis deleniti voluptatem itaque, laudantium consequuntur! Iusto impedit exercitationem, magnam voluptas adipisci, delectus deleniti architecto ratione tenetur, ex fuga provident. Fugiat provident nobis aut sequi deleniti eum nostrum nesciunt. Amet laudantium nobis libero, quasi, sed eum, itaque odit veritatis enim distinctio tenetur soluta nesciunt beatae unde obcaecati magni qui asperiores. Ullam nisi eveniet modi commodi magnam delectus. Et dolorem tempora consequatur consectetur, assumenda iure nostrum ipsam aut perferendis nesciunt amet ea accusantium architecto nobis dolorum possimus a officia quo quos vero voluptatibus quia aliquam! Quas delectus laudantium quia minima quam eligendi, explicabo incidunt eaque molestias! Vitae suscipit, magni soluta porro fuga eligendi ratione. Recusandae, in numquam debitis culpa consectetur qui, officiis illum vel nisi odio error, vero sed laborum unde fugit sint labore eius cum dignissimos perspiciatis deserunt ipsa dolorum perferendis. Nesciunt, corporis? Consectetur, eius. Expedita, atque libero accusantium assumenda consectetur voluptas iure laudantium ducimus magni velit excepturi nostrum fugiat, corrupti nisi dolore fuga enim tempore. Minus quibusdam perferendis neque suscipit ex perspiciatis porro dicta corrupti rem.
+    <Countdown chapterNumber={1} date={new Date(2025, 7, 7, 0, 0, 0)}/>
+    <FadeInSection>
+    <h1 className="pl-52 text-white text-7xl font-noto-serif-jp font-bold p-6 
+    max-lg:pl-0 max-lg:text-4xl max-lg:text-center max-lg:m-auto">INTRODUCTION</h1>
+    </FadeInSection>
+    <FadeInSection>
+    <p className="pl-52 text-3xl font-noto-serif-jp w-5/6 break-words text-white tracking-wide 
+    max-lg:pl-0 max-lg:text-xl max-lg:text-center max-lg:m-auto">
+    I originally started writing and drawing this comic as a way to procrastinate during exam season. 
+    However, over time, it has grown into something I genuinely enjoy doing in my free time. Subvero is a story of tragedy, revenge, and hatred. 
+    The protagonist, Yuta Tokito (originally referred to as Jotaro Kujo in the Draft Chapters), lost his family at a young age 
+    to the powerful and dangerous Dio Brando. Ever since, he has dedicated his life to stopping Dio and his organization once 
+    and for all. Along the way, Yuta encounters various allies who join him in his mission. 
+    The story has undergone significant changes over the years in the Draft Chapters and is now in need of a rewrite. 
+    The rewritten chapters will be available separately, as the draft version only represents about 40% of the full story.
     </p>
+    </FadeInSection>
+    <FadeInSection>
+    <h1 className="pl-52 text-white text-7xl font-noto-serif-jp font-bold pt-16 
+    max-lg:pl-0 max-lg:text-4xl max-lg:text-center max-lg:m-auto">CHARACTERS</h1>
+    </FadeInSection>
+    <FadeInSection>
+    <p className="pl-52 text-3xl font-noto-serif-jp w-5/6 break-words text-white tracking-wide p-6 
+    max-lg:pl-0 max-lg:text-xl max-lg:text-center max-lg:m-auto">As the story progresses, the character page will be regularly updated with the latest information on each character. 
+     These updates can range from small additions, such as new abilities, to major revelations like full backstories. 
+     Something to look forward to!</p>
+     </FadeInSection>
     <Footer/>
   </>
 }

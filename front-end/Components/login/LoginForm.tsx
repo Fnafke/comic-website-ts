@@ -126,7 +126,7 @@ const LoginForm: React.FC = () => {
     return (
         <>
         {isLogin && <div className="pt-44">
-            <form onSubmit={(e) => handleLogin(e)} className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-black outline outline-white rounded-lg shadow-md">
+            <form onSubmit={(e) => handleLogin(e)} className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-black outline outline-white rounded-lg shadow-md max-lg:w-4/5">
                 <label className="mb-2 text-white">
                     Email
                 </label>

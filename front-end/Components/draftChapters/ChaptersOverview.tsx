@@ -37,17 +37,13 @@ const ChaptersOverview: React.FC<Props> = ({chapterType}: Props) => {
     {data && <table className="m-auto text-white">
         <thead>
             <tr>
-              <th scope="col" className="py-2 px-4 border-b">Chapter Number</th>
-              <th scope="col" className="py-2 px-4 border-b">Chapter Title</th>
-              <th scope="col" className="py-2 px-4 border-b">Chapter Description</th>
+              <th scope="col" className="py-2 px-4 border-b"></th>
             </tr>
           </thead>
         <tbody className="cursor-pointer">
-            {Array.isArray(data) ? data.map((chapter, idx) => (
-                <tr key={idx} onClick={() => sendToChapter(chapter.chapterNumber, chapter.chapterType)}>
-                    <td>{chapter.chapterNumber}</td>
-                    <td>{chapter.chapterTitle}</td>
-                    <td>{chapter.chapterDescription}</td>
+            {Array.isArray(data) ? data.slice().reverse().map((chapter, idx) => (
+                <tr className="text-center outline outline-1 hover:bg-white hover:text-black ease-in-out transition-all" key={idx} onClick={() => sendToChapter(chapter.chapterNumber, chapter.chapterType)}>
+                  <td className="p-5">Ch. {chapter.chapterNumber} - {chapter.chapterTitle}</td>
                 </tr>
             )) : <p>No chapters found.</p>}
         </tbody>
