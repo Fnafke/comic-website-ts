@@ -156,6 +156,16 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter14 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 14,
+            chapterTitle: 'Minor Inconvenience',
+            chapterDescription: "Dio welcomes Jotaro to his Hell. The heat is unbearable but Jotaro seems to bare it. The cards are in Jotaro's favour... is this their final clash?",
+            chapterImagesHash: 'gtfGKxR',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
