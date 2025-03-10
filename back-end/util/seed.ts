@@ -166,6 +166,16 @@ const main = async() => {
             chapterType: 'Draft'
         }
     })
+
+    const draftChapter15 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 15,
+            chapterTitle: 'The Awakening',
+            chapterDescription: "Dio Brando is 20 years old and still has not awakened his powers yet. Genryusai Yamamoto, Dio's best friend, reassures him that he's better off not awakening his powers but Dio is envious of him.",
+            chapterImagesHash: 'DfKkKFo',
+            chapterType: 'Draft'
+        }
+    })
 }
 
 (async () => {
