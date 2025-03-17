@@ -9,9 +9,9 @@ const main = async() => {
 
     const admin = await prisma.user.create({
         data: {
-            username: 'Admin',
-            email: "admin@email.com",
-            password: await bcrypt.hash('admin123',12),
+            username: `${process.env.ADMIN_USERNAME}`,
+            email: `${process.env.ADMIN_EMAIL}`,
+            password: await bcrypt.hash(`${process.env.ADMIN_PASSWORD}`,12),
             role: 'admin'
         }
     })
@@ -173,6 +173,16 @@ const main = async() => {
             chapterTitle: 'The Awakening',
             chapterDescription: "Dio Brando is 20 years old and still has not awakened his powers yet. Genryusai Yamamoto, Dio's best friend, reassures him that he's better off not awakening his powers but Dio is envious of him.",
             chapterImagesHash: 'DfKkKFo',
+            chapterType: 'Draft'
+        }
+    })
+
+    const draftChapter16 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 16,
+            chapterTitle: 'The Beginning of the End',
+            chapterDescription: "Dio shares with Yamamoto that he finally awakened his powers and that they can finally save their kind from discrimination. Yamamoto isn't too fond of Dio's vision on 'saving the world', it doesn't align with his. What does this mean for Dio now...? ",
+            chapterImagesHash: 'FXGO5zV',
             chapterType: 'Draft'
         }
     })
