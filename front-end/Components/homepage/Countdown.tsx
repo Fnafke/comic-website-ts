@@ -44,7 +44,7 @@ const Countdown: React.FC<Props> = ({date, chapterNumber}: Props) => {
     }, [currenttime]);
 
     return <>
-        <div className="text-white text-center font-noto-serif-jp text-6xl font-bold max-lg:m-auto max-lg:pt-6">
+        <div className="text-white text-center font-noto-serif-jp text-6xl font-bold pt-6 max-lg:m-auto max-lg:pt-6">
             Chapter {chapterNumber} releases in: {statusMessage? statusMessage : <p>{countdown.days}:{countdown.hours}:{countdown.minutes}:{countdown.seconds}</p>}
         </div>
     </>
