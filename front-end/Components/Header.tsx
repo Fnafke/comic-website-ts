@@ -20,6 +20,7 @@ const Header: React.FC = () => {
 
     return (
         <div className="flex z-50 fixed">
+          <div>
             <button
             className="bg-black h-screen w-20 flex items-start justify-center fixed z-50 outline outline-1 outline-white 
                       max-lg:left-2.5 max-lg:top-3/4 max-lg:w-10 max-lg:h-10"
@@ -42,11 +43,13 @@ const Header: React.FC = () => {
                 }`}
               ></span>
             </div>
-          </button>
+            </button>
+          </div>
           <div
             className={`fixed inset-0  bg-black text-4xl flex justify-center items-center gap-12 transition-all duration-500 max-lg:flex-col max-lg:text-4xl ${
               isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
             }`}
+            onClick={handleOpen}
           >
             <Link onClick={handleOpen} href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Introduction
