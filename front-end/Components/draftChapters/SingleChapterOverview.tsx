@@ -63,7 +63,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
     return <>
         <h1 className="text-center text-white text-4xl font-noto-serif-jp font-bold p-5">Chapter {chapter?.chapterNumber}</h1>
         <h2 className="text-center text-white text-2xl font-noto-serif-jp font-bold">Chapter Description:</h2>
-        <p className="text-center text-white text-l font-noto-serif-jp pb-5">{chapter?.chapterDescription}</p>
+        <p className="text-center text-white text-l font-noto-serif-jp pb-5 w-5/6 break-words m-auto">{chapter?.chapterDescription}</p>
         <table className="m-auto">
             <thead>
                 <tr>
