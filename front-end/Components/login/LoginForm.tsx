@@ -108,7 +108,7 @@ const LoginForm: React.FC = () => {
 
         localStorage.setItem("loggedInUser", JSON.stringify({
             token: response.token,
-            name: response.name,
+            username: response.username,
             email: response.email,
             role: response.role
           }));
@@ -154,7 +154,7 @@ const LoginForm: React.FC = () => {
         {!isLogin && <div className="pt-36">
             <form 
                 onSubmit={(e) => handleRegister(e)} 
-                className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-black outline outline-white rounded-lg shadow-md">
+                className="flex flex-col justify-center text-center w-1/3 m-auto p-6 bg-black outline outline-white rounded-lg shadow-md max-lg:w-4/5">
                 <label className="mb-2 text-white">
                     Username
                 </label>

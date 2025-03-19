@@ -9,6 +9,7 @@
 
 :root {
     @apply bg-[url(../public/images/homepage/background-image-2.png)] bg-cover;
+    background-color: black
 }
 
 html, body {
