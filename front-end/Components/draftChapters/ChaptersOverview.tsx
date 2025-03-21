@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import useSWR, { mutate } from "swr";
 import useInterval from "use-interval";
+import DateConverter from "./DateConverter";
 
 type Props = {
     chapterType: string
@@ -44,6 +45,7 @@ const ChaptersOverview: React.FC<Props> = ({chapterType}: Props) => {
             {Array.isArray(data) ? data.slice().reverse().map((chapter, idx) => (
                 <tr className="text-center outline outline-1 hover:bg-white hover:text-black ease-in-out transition-all" key={idx} onClick={() => sendToChapter(chapter.chapterNumber, chapter.chapterType)}>
                   <td className="p-5">Ch. {chapter.chapterNumber} - {chapter.chapterTitle}</td>
+                  <td className="p-5"><DateConverter date={chapter.chapterReleaseDate}/></td>
                 </tr>
             )) : <p>No chapters found.</p>}
         </tbody>
