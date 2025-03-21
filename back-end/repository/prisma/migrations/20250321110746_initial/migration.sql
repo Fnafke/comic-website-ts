@@ -17,6 +17,7 @@ CREATE TABLE "Chapter" (
     "chapterDescription" TEXT NOT NULL,
     "chapterImagesHash" TEXT NOT NULL,
     "chapterType" TEXT NOT NULL,
+    "chapterReleaseDate" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Chapter_pkey" PRIMARY KEY ("id")
 );

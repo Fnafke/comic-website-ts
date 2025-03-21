@@ -14,6 +14,7 @@ export type Chapter = {
     chapterDescription: string;
     chapterImagesHash: string;
     chapterType: string;
+    chapterReleaseDate: Date
 }
 
 export type ImgurResponse = {

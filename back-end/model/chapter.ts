@@ -7,19 +7,21 @@ export class Chapter {
     readonly chapterDescription: string;
     readonly chapterImagesHash: string;
     readonly chapterType: string;
+    readonly chapterReleaseDate: Date;
 
-    constructor(chapter: {id?: number, chapterNumber: number, chapterTitle: string, chapterDescription: string, chapterImagesHash: string, chapterType: string}) {
+    constructor(chapter: {id?: number, chapterNumber: number, chapterTitle: string, chapterDescription: string, chapterImagesHash: string, chapterType: string, chapterReleaseDate: Date}) {
         this.id = chapter.id;
         this.chapterNumber = chapter.chapterNumber;
         this.chapterTitle = chapter.chapterTitle;
         this.chapterDescription = chapter.chapterDescription;
         this.chapterImagesHash = chapter.chapterImagesHash;
         this.chapterType = chapter.chapterType;
+        this.chapterReleaseDate = chapter.chapterReleaseDate;
     }
 
-    static from({id, chapterNumber, chapterTitle, chapterDescription, chapterImagesHash, chapterType}: ChapterPrisma) {
+    static from({id, chapterNumber, chapterTitle, chapterDescription, chapterImagesHash, chapterType, chapterReleaseDate}: ChapterPrisma) {
         return new Chapter(
-            {id, chapterNumber,chapterTitle, chapterDescription, chapterImagesHash, chapterType}
+            {id, chapterNumber,chapterTitle, chapterDescription, chapterImagesHash, chapterType, chapterReleaseDate}
         )
     }
 }
