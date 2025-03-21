@@ -23,7 +23,7 @@ const main = async() => {
             chapterDescription: 'This is a test',
             chapterImagesHash: '4tJJOS4',
             chapterType: 'Draft',
-            chapterReleaseDate: new Date(new Date().setFullYear(2025,1,24)).toISOString()
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,1,9)).toISOString()
         }
     })
 
