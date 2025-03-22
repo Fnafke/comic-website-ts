@@ -18,6 +18,7 @@ type AuthenticationResponse = {
 type Chapter = {
     id?: number;
     chapterNumber: number;
+    chapterCoverHash: string;
     chapterTitle: string;
     chapterDescription: string;
     chapterImagesHash: string;

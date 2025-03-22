@@ -12,6 +12,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Chapter" (
     "id" SERIAL NOT NULL,
+    "chapterCoverHash" TEXT NOT NULL,
     "chapterNumber" INTEGER NOT NULL,
     "chapterTitle" TEXT NOT NULL,
     "chapterDescription" TEXT NOT NULL,

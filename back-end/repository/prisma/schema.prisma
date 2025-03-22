@@ -16,13 +16,15 @@ model User {
 }
 
 //ChapterNumber is what number the chapter is
+//ChapterCoverHash is the unique characters in the imgur link which we'll be able to use to get the cover image of a chapter
 //ChapterTitle is the name of the chapter itself
 //ChapterDescription is the description of the chapter
-//ChapterImagesHash is the unique characters in the imgur link which we'll be able to get by using their API
+//ChapterImagesHash is the unique characters in the imgur link which we'll be able to use to get the chapter pages
 //ChapterType is the type of chapter: Draft, Release. Draft chapters are the notebook comic and Release chapters are the rewrite chapters.
 //ChapterReleaseDate is the release date of the chapter
 model Chapter {
     id                 Int      @id @default(autoincrement())
+    chapterCoverHash   String
     chapterNumber      Int
     chapterTitle       String
     chapterDescription String
