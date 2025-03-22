@@ -66,7 +66,7 @@ const ChaptersOverview: React.FC<Props> = ({chapterType}: Props) => {
                             className="flex items-center p-4 border-b border-gray-700 cursor-pointer hover:bg-gray-900 transition-all hover:-translate-x-2"
                             onClick={() => sendToChapter(chapter.chapterNumber, chapter.chapterType)}
                         >
-                            <div className="relative max-lg:w-24 max-lg:h-16">
+                            <div className="relative max-lg:w-24 max-lg:h-16 shrink-0">
                               {dataImages && 
                               <img
                                 src={dataImages[chapter.chapterNumber - 1].link}
