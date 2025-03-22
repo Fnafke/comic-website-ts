@@ -83,7 +83,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
 
         </table>
         <div className="flex justify-center text-white gap-52 p-10">
-            {chapterNumber != 0 && <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            {chapterNumber != 1 && <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
             onClick={sendPrevious}
             >
                 Previous Chapter
