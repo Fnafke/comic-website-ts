@@ -38,7 +38,7 @@ const ChaptersOverview: React.FC<Props> = ({chapterType}: Props) => {
       router.push(`${path}/${chapterType}/${chapterNumber}`)
     }
 
-    const {data, isLoading, error} = useSWR(
+    const {data: dataChapters, isLoading: isLoadingChapters, error: errorChapters} = useSWR(
       "chapters",
       getChapters,
     )
@@ -54,19 +54,19 @@ const ChaptersOverview: React.FC<Props> = ({chapterType}: Props) => {
       }, 2000);
 
       return (
-        <div className="bg-black text-white p-4 w-4/6 m-auto rounded-lg">
+        <div className="bg-black text-white p-4 w-4/6 m-auto rounded-lg max-lg:w-11/12">
             <h2 className="text-lg font-bold mb-4">CHAPTER LIST</h2>
-            {error && <p className="text-center text-red-500 mt-4">Failed to load chapters</p>}
-            {isLoading && <p className="text-center text-gray-400 mt-4">Loading...</p>}
-            {data && (
+            {errorChapters && <p className="text-center text-red-500 mt-4">Failed to load chapters</p>}
+            {isLoadingChapters && <p className="text-center text-gray-400 mt-4">Loading...</p>}
+            {dataChapters && (
                 <div>
-                    {Array.isArray(data) ? data.slice().reverse().map((chapter, idx) => (
+                    {Array.isArray(dataChapters) ? dataChapters.slice().reverse().map((chapter, idx) => (
                         <div 
                             key={idx} 
                             className="flex items-center p-4 border-b border-gray-700 cursor-pointer hover:bg-gray-900 transition-all hover:-translate-x-2"
                             onClick={() => sendToChapter(chapter.chapterNumber, chapter.chapterType)}
                         >
-                            <div className="relative">
+                            <div className="relative max-lg:w-24 max-lg:h-16">
                               {dataImages && 
                               <img
                                 src={dataImages[chapter.chapterNumber - 1].link}
