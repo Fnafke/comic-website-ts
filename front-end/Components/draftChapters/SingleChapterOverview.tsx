@@ -33,7 +33,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
 
     const checkIsLatest = async() => {
         const chapters = await ChapterService.getAllChapters(chapterType);
-        if (chapterNumber + 1 == chapters.length) {
+        if (chapterNumber == chapters.length) {
             setIsLatest(true);
         }
 
