@@ -12,11 +12,13 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Chapter" (
     "id" SERIAL NOT NULL,
+    "chapterCoverHash" TEXT NOT NULL,
     "chapterNumber" INTEGER NOT NULL,
     "chapterTitle" TEXT NOT NULL,
     "chapterDescription" TEXT NOT NULL,
     "chapterImagesHash" TEXT NOT NULL,
     "chapterType" TEXT NOT NULL,
+    "chapterReleaseDate" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Chapter_pkey" PRIMARY KEY ("id")
 );
