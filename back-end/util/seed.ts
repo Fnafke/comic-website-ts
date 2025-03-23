@@ -202,10 +202,22 @@ const main = async() => {
             chapterNumber: 16,
             chapterCoverHash: 'EIeL2NH',
             chapterTitle: 'The Beginning of the End',
-            chapterDescription: "Dio shares with Yamamoto that he finally awakened his powers and that they can finally save their kind from discrimination. Yamamoto isn't too fond of Dio's vision on 'saving the world', it doesn't align with his. What does this mean for Dio now...? ",
+            chapterDescription: "Dio shares with Yamamoto that he finally awakened his powers and that they can finally save their kind from discrimination. Yamamoto isn't too fond of Dio's vision on 'saving the world', it doesn't align with his. What does this mean for Dio now...?",
             chapterImagesHash: 'FXGO5zV',
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,2,17)).toISOString()
+        }
+    })
+
+    const draftChapter17 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 17,
+            chapterCoverHash: 'REnQp2u',
+            chapterTitle: 'The Sealing',
+            chapterDescription: "After his massive show in the courtroom, Dio got sent to the underground prison, there he got a visit from the person whom he'll loathe forever.",
+            chapterImagesHash: 'EMrajsK',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,2,23)).toISOString()
         }
     })
 }
