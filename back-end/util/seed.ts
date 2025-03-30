@@ -220,6 +220,18 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,2,23)).toISOString()
         }
     })
+
+    const draftChapter18 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 18,
+            chapterCoverHash: '1lwhXpj',
+            chapterTitle: 'High-Rise Invasion',
+            chapterDescription: "100 years have passed since the sealing of Dio Brando and an army emerges at the edges of the British lands. An unexpected invasion begins!",
+            chapterImagesHash: 'x5X1Wra',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,2,23)).toISOString()
+        }
+    })
 }
 
 (async () => {
