@@ -229,7 +229,7 @@ const main = async() => {
             chapterDescription: "100 years have passed since the sealing of Dio Brando and an army emerges at the edges of the British lands. An unexpected invasion begins!",
             chapterImagesHash: 'x5X1Wra',
             chapterType: 'Draft',
-            chapterReleaseDate: new Date(new Date().setFullYear(2025,2,23)).toISOString()
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,2,30)).toISOString()
         }
     })
 }
