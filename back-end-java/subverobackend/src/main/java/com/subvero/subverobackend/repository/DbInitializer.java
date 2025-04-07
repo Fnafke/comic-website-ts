@@ -4,14 +4,12 @@ import java.time.LocalDate;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Value;
 
 import com.subvero.subverobackend.model.Chapter;
 import com.subvero.subverobackend.model.ChapterType;
 import com.subvero.subverobackend.model.Role;
 import com.subvero.subverobackend.model.User;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.annotation.PostConstruct;
 
 @Component
@@ -37,13 +35,8 @@ public class DbInitializer {
     public void init() {
         deleteAll();
 
-        Dotenv dotenv = Dotenv.configure().directory("back-end-java\\subverobackend\\").load();
-        String adminUsername = dotenv.get("ADMIN_USERNAME");
-        String adminPassword = dotenv.get("ADMIN_PASSWORD");
-        String adminEmail = dotenv.get("ADMIN_EMAIL");
-
-        final var admin = userRepository.save(new User(adminUsername, adminEmail,
-                this.passwordEncoder.encode(adminPassword), Role.Admin));
+        final var admin = userRepository.save(new User("admin", "admin@email.com",
+                this.passwordEncoder.encode("admin123"), Role.Admin));
 
         final var draftChapter1 = chapterRepository
                 .save(new Chapter(1, "liWKLsE", "Part 1: The World vs. Made In Heaven",
