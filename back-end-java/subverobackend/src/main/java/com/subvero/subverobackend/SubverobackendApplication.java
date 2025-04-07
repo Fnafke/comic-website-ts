@@ -9,7 +9,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class SubverobackendApplication {
 
 	public static void main(String[] args) {
-		Dotenv.configure().ignoreIfMissing().load();
+		Dotenv.configure().directory("back-end-java\\subverobackend\\").ignoreIfMissing().load();
 		SpringApplication.run(SubverobackendApplication.class, args);
 	}
 

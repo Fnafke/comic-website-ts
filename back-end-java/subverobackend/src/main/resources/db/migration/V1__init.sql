@@ -11,11 +11,11 @@ CREATE TABLE users (
 
 CREATE TABLE chapters (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    chapterCoverHash VARCHAR(10) NOT NULL,
-    chapterNumber INT NOT NULL,
-    chapterTitle VARCHAR(255) NOT NULL,
-    chapterDescription TEXT NOT NULL,
-    chapterImagesHash VARCHAR(10) NOT NULL,
-    chapterType VARCHAR(8) NOT NULL,
-    chapterReleaseDate DATETIME NOT NULL
+    chapter_cover_hash VARCHAR(10) NOT NULL,
+    chapter_number INT NOT NULL,
+    chapter_title VARCHAR(255) NOT NULL,
+    chapter_description TEXT NOT NULL,
+    chapter_images_hash VARCHAR(10) NOT NULL,
+    chapter_type VARCHAR(8) NOT NULL,
+    chapter_release_date DATETIME NOT NULL
 );
