@@ -232,6 +232,18 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,2,30)).toISOString()
         }
     })
+
+    const draftChapter19 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 19,
+            chapterCoverHash: 'VtZ7cfU',
+            chapterTitle: 'You sure can put up a fight!',
+            chapterDescription: "The clash between the German Captain and Yulker Musalim begins! Will Yulker succeed in protecting everyone?",
+            chapterImagesHash: 'M4wwaNQ',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,3,7)).toISOString()
+        }
+    })
 }
 
 (async () => {
