@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# java application yaml
+/back-end-java/subverobackend/application.yml
+/back-end-java/subverobackend/src/main/resources/application-dev.yml
+/back-end-java/subverobackend/src/main/resources/application-prod.yml
