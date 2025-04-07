@@ -130,6 +130,6 @@ dist
 .pnp.*
 
 # java application yaml
-/back-end-java/subverobackend/application.yml
+/back-end-java/subverobackend/src/main/resources/application.yml
 /back-end-java/subverobackend/src/main/resources/application-dev.yml
 /back-end-java/subverobackend/src/main/resources/application-prod.yml
