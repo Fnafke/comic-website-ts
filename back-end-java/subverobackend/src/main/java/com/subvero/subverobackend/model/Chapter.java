@@ -1,7 +1,6 @@
 package com.subvero.subverobackend.model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -24,14 +23,18 @@ public class Chapter {
     private int chapterNumber;
 
     @NotNull
+    @NotBlank
     private String chapterCoverHash;
 
+    @NotNull
     @NotBlank
     private String chapterTitle;
 
+    @NotNull
     @NotBlank
     private String chapterDescription;
 
+    @NotNull
     @NotBlank
     private String chapterImagesHash;
 
@@ -40,16 +43,17 @@ public class Chapter {
     private ChapterType chapterType;
 
     @NotNull
-    private Date chapterReleaseDate;
+    private LocalDate chapterReleaseDate;
 
     protected Chapter() {
     }
 
     public Chapter(int chapterNumber, String chapterCoverHash, String chapterTitle, String chapterDescription,
-            String chapterImagesHash, ChapterType chapterType, Date chapterReleaseDate) {
+            String chapterImagesHash, ChapterType chapterType, LocalDate chapterReleaseDate) {
         this.setChapterNumber(chapterNumber);
         this.setChapterCoverHash(chapterCoverHash);
         this.setChapterTitle(chapterTitle);
+        this.setChapterDescription(chapterDescription);
         this.setChapterImagesHash(chapterImagesHash);
         this.setChapterImagesHash(chapterImagesHash);
         this.setChapterType(chapterType);
@@ -113,11 +117,11 @@ public class Chapter {
         this.chapterType = chapterType;
     }
 
-    public Date getChapterReleaseDate() {
+    public LocalDate getChapterReleaseDate() {
         return chapterReleaseDate;
     }
 
-    public void setChapterReleaseDate(Date chapterReleaseDate) {
+    public void setChapterReleaseDate(LocalDate chapterReleaseDate) {
         this.chapterReleaseDate = chapterReleaseDate;
     }
 

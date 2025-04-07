@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -20,18 +21,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @NotBlank
     private String username;
 
+    @NotNull
     @NotBlank
     @Email
     private String email;
 
+    @NotNull
     @NotBlank
     @JsonIgnore
     private String password;
 
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Role role;
 
