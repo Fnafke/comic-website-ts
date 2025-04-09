@@ -16,7 +16,7 @@ import com.subvero.subverobackend.model.User;
 
 @Service
 public class JwtService {
-    public final JwtProperties jwtProperties;
+    private final JwtProperties jwtProperties;
     private final JwtEncoder jwtEncoder;
 
     public JwtService(JwtProperties jwtProperties, JwtEncoder jwtEncoder) {
