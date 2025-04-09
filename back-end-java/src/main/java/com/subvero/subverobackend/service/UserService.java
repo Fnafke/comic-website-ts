@@ -62,10 +62,16 @@ public class UserService {
         User user = userRepository.findByEmail(email);
 
         if (user == null) {
-            throw new NotFoundException("User does not exist.");
+            throw new NotFoundException("Email Email or Password is not valid.");
         }
 
-        return new AuthenticationResponse("Authenticated successfully.", jwtService.generateToken(user),
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new NotFoundException("Password Email or Password is not valid.");
+        }
+
+        String token = jwtService.generateToken(user);
+
+        return new AuthenticationResponse("Authenticated successfully.", token,
                 user.getUsername(), user.getRole());
     }
 
