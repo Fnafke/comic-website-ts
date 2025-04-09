@@ -1,5 +1,7 @@
 package com.subvero.subverobackend.config;
 
+import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
+
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 
@@ -9,9 +11,16 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.h2.H2ConsoleProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
@@ -19,6 +28,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.jwk.JWK;
@@ -27,9 +37,46 @@ import com.nimbusds.jose.jwk.OctetSequenceKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 
 @Configuration
-@EnableConfigurationProperties({ JwtProperties.class })
+@EnableConfigurationProperties({ H2ConsoleProperties.class, JwtProperties.class, CorsProperties.class })
 public class SecurityConfig {
     private static final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
+
+    @Bean
+    @Order(0)
+    @ConditionalOnProperty(prefix = "spring.h2.console", name = "enabled", havingValue = "true")
+    public SecurityFilterChain h2SecurityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .securityMatcher(toH2Console())
+                .csrf(csrf -> csrf.disable())
+                .headers(headers -> headers.frameOptions(frameOptionsConfig -> frameOptionsConfig.disable()))
+                .authorizeHttpRequests(
+                        authorizeRequests -> authorizeRequests.anyRequest().permitAll())
+                .build();
+    }
+
+    @Bean
+    @Order(1)
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+            CorsProperties corsProperties) throws Exception {
+        return http
+                .authorizeHttpRequests(
+                        authorizeRequests -> authorizeRequests
+                                // Allow all access to health check
+                                .requestMatchers("/status").permitAll()
+                                // Allow all access to error endpoints
+                                .requestMatchers("/error/**").permitAll()
+                                // Allow all to login and signup
+                                .requestMatchers("/users/login", "/users/signup").permitAll()
+                                // Allow OpenAPI access
+                                .requestMatchers("/v3/api-docs/**").permitAll()
+                                // Allow Swagger UI
+                                .requestMatchers("/swagger-ui/**", "/swagger-ui.html").permitAll()
+                                .anyRequest().authenticated())
+                .cors(Customizer.withDefaults())
+                .csrf(csrf -> csrf.disable())
+                .oauth2ResourceServer(resourceServer -> resourceServer.jwt(Customizer.withDefaults()))
+                .build();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -61,4 +108,9 @@ public class SecurityConfig {
         return new NimbusJwtEncoder(jwks);
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 }
