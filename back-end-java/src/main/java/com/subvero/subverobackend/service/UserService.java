@@ -62,11 +62,11 @@ public class UserService {
         User user = userRepository.findByEmail(email);
 
         if (user == null) {
-            throw new NotFoundException("Email Email or Password is not valid.");
+            throw new NotFoundException("Email or Password is not valid.");
         }
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new NotFoundException("Password Email or Password is not valid.");
+            throw new NotFoundException("Email or Password is not valid.");
         }
 
         String token = jwtService.generateToken(user);
