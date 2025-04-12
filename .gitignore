@@ -133,4 +133,7 @@ dist
 /back-end-java/src/main/resources/application.yml
 /back-end-java/src/main/resources/application-dev.yml
 /back-end-java/src/main/resources/application-prod.yml
+/back-end-java/src/main/resources/application.properties
+/back-end-java/src/main/resources/application-dev.properties
+/back-end-java/src/main/resources/application-prod.properties
 .vscode
