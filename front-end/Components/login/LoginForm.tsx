@@ -72,7 +72,7 @@ const LoginForm: React.FC = () => {
         if (!validateLogin()) return;
 
         const response = await userService.logIn(email, password);
-        if (!response) {
+        if (!response || response.status) {
             setEmailError("Email or password is wrong.");
             return;
         }
