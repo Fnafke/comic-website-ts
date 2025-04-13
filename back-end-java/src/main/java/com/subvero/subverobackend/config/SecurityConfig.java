@@ -91,6 +91,9 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource(CorsProperties corsProperties) {
         final var configuration = new CorsConfiguration();
         final var allowedOrigins = corsProperties.allowedOrigins().stream().map(URL::toString).toList();
+
+        log.info("🚀 CORS Allowed Origins at startup: {}", allowedOrigins);
+
         configuration.setAllowedOrigins(allowedOrigins);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
