@@ -126,6 +126,10 @@ public class DbInitializer {
                                 "You sure can put up a fight!",
                                 "The clash between the German Captain and Yulker Musalim begins! Will Yulker succeed in protecting everyone?",
                                 "M4wwaNQ", ChapterType.Draft, LocalDate.of(2025, 4, 7)));
+                final var draftChapter20 = chapterRepository.save(new Chapter(20, "gjFgCt6",
+                                "War's Potential",
+                                "Yulker unleashes his Domain Expansion on the German Captain. Their clash continues!",
+                                "8942TQj", ChapterType.Draft, LocalDate.of(2025, 4, 13)));
 
         }
 }
