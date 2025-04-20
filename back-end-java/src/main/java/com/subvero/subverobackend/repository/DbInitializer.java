@@ -133,7 +133,7 @@ public class DbInitializer {
                 final var draftChapter21 = chapterRepository.save(new Chapter(21, "IxDr7xh",
                                 "What was that feeling?",
                                 "The invasion can't be halted even though the German Captain has been defeated!",
-                                "7oG5KiW", ChapterType.Draft, LocalDate.of(2025, 4, 13)));
+                                "7oG5KiW", ChapterType.Draft, LocalDate.of(2025, 4, 20)));
 
         }
 }
