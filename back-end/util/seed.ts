@@ -244,6 +244,30 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,3,7)).toISOString()
         }
     })
+
+    const draftChapter20 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 20,
+            chapterCoverHash: 'gjFgCt6',
+            chapterTitle: "War's Potential",
+            chapterDescription: "Yulker unleashes his Domain Expansion on the German Captain. Their clash continues!",
+            chapterImagesHash: '8942TQj',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,3,13)).toISOString()
+        }
+    })
+
+    const draftChapter21 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 21,
+            chapterCoverHash: 'IxDr7xh',
+            chapterTitle: 'What was that feeling?',
+            chapterDescription: "The invasion can't be halted even though the German Captain has been defeated!",
+            chapterImagesHash: '7oG5KiW',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,3,20)).toISOString()
+        }
+    })
 }
 
 (async () => {
