@@ -268,6 +268,18 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,3,20)).toISOString()
         }
     })
+
+    const draftChapter22 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 22,
+            chapterCoverHash: 'scaxCjV',
+            chapterTitle: 'The Almighty',
+            chapterDescription: "What's the cause of that weird feeling?",
+            chapterImagesHash: 'BPgXm17',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,3,27)).toISOString()
+        }
+    })
 }
 
 (async () => {
