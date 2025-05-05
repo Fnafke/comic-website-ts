@@ -280,6 +280,18 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,3,27)).toISOString()
         }
     })
+
+    const draftChapter23 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 23,
+            chapterCoverHash: 'FewEolp',
+            chapterTitle: 'Yhwach',
+            chapterDescription: "The Captain of the German Empire, The final successor of the German Throne... Yhwach.",
+            chapterImagesHash: 'UW3Hucu',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,4,5)).toISOString()
+        }
+    })
 }
 
 (async () => {
