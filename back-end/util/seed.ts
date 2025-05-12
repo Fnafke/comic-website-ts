@@ -301,7 +301,7 @@ const main = async() => {
             chapterDescription: "Bambietta Basterbine begins her task of healing the injured Captain Yhwach and Dio Brando... but realises that something is very wrong and that she's not alone.",
             chapterImagesHash: 'Bzoi1MJ',
             chapterType: 'Draft',
-            chapterReleaseDate: new Date(new Date().setFullYear(2025,4,5)).toISOString()
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,4,12)).toISOString()
         }
     })
 }
