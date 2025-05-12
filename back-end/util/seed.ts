@@ -292,6 +292,18 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,4,5)).toISOString()
         }
     })
+
+        const draftChapter24 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 24,
+            chapterCoverHash: 'CGhJ1oa',
+            chapterTitle: 'The Balance of Love',
+            chapterDescription: "Bambietta Basterbine begins her task of healing the injured Captain Yhwach and Dio Brando... but realises that something is very wrong and that she's not alone.",
+            chapterImagesHash: 'Bzoi1MJ',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,4,5)).toISOString()
+        }
+    })
 }
 
 (async () => {
