@@ -304,6 +304,17 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,4,12)).toISOString()
         }
     })
+        const draftChapter25 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 25,
+            chapterCoverHash: 'Cx8WKbT',
+            chapterTitle: 'The Balance of Love 2',
+            chapterDescription: "Bambietta vs. Haschwalt continues! Bambietta has finally found a worthy opponent in this war!",
+            chapterImagesHash: 'DL1ixid',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,4,19)).toISOString()
+        }
+    })    
 }
 
 (async () => {
