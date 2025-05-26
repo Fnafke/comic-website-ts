@@ -314,7 +314,18 @@ const main = async() => {
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,4,19)).toISOString()
         }
-    })    
+    })
+        const draftChapter26 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 26,
+            chapterCoverHash: 'f4Ecq55',
+            chapterTitle: 'The Balance of Love 3',
+            chapterDescription: "The fight rages on! Bambietta seems to be in her zone, meanwhile Haschwalt seems to be struggling.",
+            chapterImagesHash: 'E936QKo',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,4,26)).toISOString()
+        }
+    })           
 }
 
 (async () => {
