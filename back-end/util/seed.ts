@@ -293,7 +293,7 @@ const main = async() => {
         }
     })
 
-        const draftChapter24 = await prisma.chapter.create({
+    const draftChapter24 = await prisma.chapter.create({
         data: {
             chapterNumber: 24,
             chapterCoverHash: 'CGhJ1oa',
@@ -304,7 +304,7 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,4,12)).toISOString()
         }
     })
-        const draftChapter25 = await prisma.chapter.create({
+    const draftChapter25 = await prisma.chapter.create({
         data: {
             chapterNumber: 25,
             chapterCoverHash: 'Cx8WKbT',
@@ -315,7 +315,7 @@ const main = async() => {
             chapterReleaseDate: new Date(new Date().setFullYear(2025,4,19)).toISOString()
         }
     })
-        const draftChapter26 = await prisma.chapter.create({
+    const draftChapter26 = await prisma.chapter.create({
         data: {
             chapterNumber: 26,
             chapterCoverHash: 'f4Ecq55',
@@ -325,7 +325,19 @@ const main = async() => {
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,4,26)).toISOString()
         }
-    })           
+    })
+    
+    const draftChapter27 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 27,
+            chapterCoverHash: 'RMVXpxr',
+            chapterTitle: 'I am truly... truly free!',
+            chapterDescription: "When Bambietta was sliced into pieces by Haschwalt's The Balance, she entered her inner world where she was forced to confront her weaknesses.",
+            chapterImagesHash: 'zVYKNyb',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,5,3)).toISOString()
+        }
+    })     
 }
 
 (async () => {
