@@ -337,7 +337,31 @@ const main = async() => {
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,5,3)).toISOString()
         }
-    })     
+    })
+
+    const draftChapter28 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 28,
+            chapterCoverHash: 'LzUjbDB',
+            chapterTitle: "The Fear of Love's Light",
+            chapterDescription: "After Bambietta's resurrection, Haschwalt and Bambietta both reached their highest potential, unleashing their most powerful abilities. Where's their limit?",
+            chapterImagesHash: '7wRmHHI',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,5,18)).toISOString()
+        }
+    })
+    
+    const draftChapter29 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 29,
+            chapterCoverHash: 'Oj3nidm',
+            chapterTitle: "The Fear of Love's Light 2",
+            chapterDescription: "Bambietta has done it, she has touched Haschwalt with her Bankai. What's her full ability?",
+            chapterImagesHash: 'T10MRd0',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,5,18)).toISOString()
+        }
+    })      
 }
 
 (async () => {
