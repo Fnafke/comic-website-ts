@@ -24,11 +24,25 @@ type Chapter = {
     chapterImagesHash: string;
     chapterType: string
     chapterReleaseDate: Date
+    comment: Comment[]
+}
+
+type Comment = {
+    id?: number;
+    user: User;
+    chapter: Chapter;
+    content: string;
+    parentComment?: Comment;
+    replies: Comment[];
+    createdAt: Date;
+    updatedAt?: Date;
+    isEdited: boolean;
 }
 
 export {
     User,
     Role,
     AuthenticationResponse,
-    Chapter
+    Chapter,
+    Comment
 }
