@@ -37,5 +37,6 @@ export class Comment {
     editContent = (newContent: string) => {
         this.content = newContent;
         this.updatedAt = new Date();
+        this.isEdited = true
     }
 }
