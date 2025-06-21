@@ -136,3 +136,5 @@ dist
 /back-end-java/src/main/resources/application.properties
 /back-end-java/src/main/resources/application-dev.properties
 .vscode
+
+/back-end/repository/prisma/migrations
