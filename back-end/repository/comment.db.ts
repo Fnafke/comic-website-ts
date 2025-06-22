@@ -34,3 +34,7 @@ const fetchChapterComments = async(chapterNumber: number, chapterType: string): 
         throw new Error(`Database error: Could not fetch all the comments for chapter ${chapterNumber}`)
     }
 }
+
+export default {
+    fetchChapterComments
+}
