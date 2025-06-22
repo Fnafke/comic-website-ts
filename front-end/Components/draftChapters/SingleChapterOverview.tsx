@@ -2,6 +2,7 @@ import ChapterService from "@/services/ChapterService";
 import { Chapter, ImgurImage, ImgurResponse } from "@/types";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import ChapterCommentSection from "./ChapterCommentSection";
 
 type Props = {
     chapterType: string;
@@ -94,6 +95,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
                 Next Chapter
             </button>}
         </div>
+        {chapter ? <ChapterCommentSection chapter={chapter}/> : <p className="text-red-500 text-center" >Could not load comment section due to an error...</p>}
     </>
 }
 

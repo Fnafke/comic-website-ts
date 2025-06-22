@@ -7,6 +7,18 @@ export type User = {
 
 }
 
+export type Comment = {
+    id?: number;
+    user?: User;
+    chapter?: Chapter;
+    content?: string;
+    parentComment?: Comment;
+    replies?: Comment[];
+    createdAt?: Date;
+    updatedAt?: Date;
+    isEdited?: boolean;
+}
+
 export type Chapter = {
     id?: number;
     chapterNumber: number;
