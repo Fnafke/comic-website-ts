@@ -31,6 +31,21 @@ const getChapter = async(chapterNumber: number, chapterType: string): Promise<Ch
     }
 }
 
+const chapterExists = async(chapterNumber: number, chapterType: string): Promise<boolean> => {
+    try {
+        const chapterPrisma = await database.chapter.findFirst({
+            where: {
+                chapterNumber: chapterNumber,
+                chapterType: chapterType
+            }
+        })
+        return chapterPrisma ? true : false;
+    } catch (error) {
+        console.error(error);
+        throw new Error(`Database error: Could not get certain chapter with number ${chapterNumber}, check server logs!`)
+    }
+}
+
 export default {
     getAllChapters,
     getChapter
