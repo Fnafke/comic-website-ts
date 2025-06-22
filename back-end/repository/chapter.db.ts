@@ -48,5 +48,6 @@ const chapterExists = async(chapterNumber: number, chapterType: string): Promise
 
 export default {
     getAllChapters,
-    getChapter
+    getChapter,
+    chapterExists
 }
