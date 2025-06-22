@@ -42,7 +42,7 @@ const ChapterCommentSection: React.FC<Props> = ({chapter}: Props) => {
 
         {/* Comments List */}
         <ul className="space-y-6">
-            {listOfComments.filter((comment => !comment.parentComment)).map((comment: Comment, idx) => (
+            {listOfComments && listOfComments.length > 0 ? listOfComments.filter((comment => !comment.parentComment)).map((comment: Comment, idx) => (
             <li key={idx} className="flex items-start gap-4">
                 {/* Avatar */}
                 <div className="h-10 w-10 flex-shrink-0 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-sm hover:opacity-90 transition">
@@ -92,7 +92,9 @@ const ChapterCommentSection: React.FC<Props> = ({chapter}: Props) => {
                 )}
                 </div>
             </li>
-            ))}
+            )) : (<li>
+                <p className="text-blue-300 italic">Be the first to comment!</p>
+            </li>)}
         </ul>
         </div>
     </> 
