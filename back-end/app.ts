@@ -8,6 +8,7 @@ import helmet from 'helmet';
 import userRouter from './controller/user.routes';
 import { expressjwt } from 'express-jwt';
 import chapterRouter from './controller/chapter.routes';
+import commentRouter from './controller/comment.routes';
 
 const app = express();
 dotenv.config();
@@ -41,4 +42,5 @@ app.listen(port || 3000, () => {
 
 // ENDPOINTS
 app.use('/users', userRouter);
-app.use('/chapters', chapterRouter)
+app.use('/chapters', chapterRouter);
+app.use('/comments', commentRouter);
