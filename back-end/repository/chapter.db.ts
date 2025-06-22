@@ -1,4 +1,5 @@
 import { Chapter } from "../model/chapter"
+import { Comment } from "../model/comment";
 import database from "../util/database"
 
 const getAllChapters = async(chapterType: string): Promise<Chapter[]> => {

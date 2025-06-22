@@ -32,7 +32,7 @@ model Chapter {
     chapterImagesHash  String
     chapterType        String
     chapterReleaseDate DateTime
-    Comment            Comment[]
+    comments           Comment[]
 }
 
 model Comment {

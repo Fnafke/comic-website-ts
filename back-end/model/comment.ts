@@ -8,12 +8,12 @@ export class Comment {
     public chapter: Chapter;
     public content: string;
     public parentComment?: Comment;
-    public replies: Comment[] = [];
+    public replies: Comment[];
     public createdAt: Date;
     public updatedAt?: Date;
     public isEdited: boolean = false;
 
-    constructor(comment: {id?: number, user: User, chapter: Chapter, content: string, parentComment?: Comment, createdAt: Date}) {
+    constructor(comment: {id?: number, user: User, chapter: Chapter, content: string, parentComment?: Comment, createdAt: Date, replies?: Comment[]}) {
         this.validate(comment);
 
         this.id = comment.id;
@@ -22,6 +22,7 @@ export class Comment {
         this.content = comment.content;
         this.createdAt = comment.createdAt;
         this.parentComment = comment.parentComment;
+        this.replies = comment.replies || []
     }
 
     validate(comment: {id?: number, user: User, chapter: Chapter, content: string, parentComment?: Comment, createdAt: Date}) {
@@ -37,6 +38,7 @@ export class Comment {
             chapter: Chapter.from(chapter),
             content,
             parentComment: parentComment ? Comment.from(parentComment as any) : undefined,
+            replies: replies ? replies.map(reply => Comment.from(reply as any)) : [],
             createdAt}
         )
 

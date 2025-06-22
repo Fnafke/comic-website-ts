@@ -29,14 +29,17 @@ type Chapter = {
 
 type Comment = {
     id?: number;
-    user: User;
-    chapter: Chapter;
+    userId: number;
+    chapterId: number;
     content: string;
-    parentComment?: Comment;
-    replies: Comment[];
+    commentId?: number | null;
     createdAt: Date;
-    updatedAt?: Date;
+    updatedAt?: Date | null;
     isEdited: boolean;
+    user?: User;
+    chapter?: Chapter;
+    parentComment?: Comment | null;
+    replies?: Comment[];
 }
 
 export {
