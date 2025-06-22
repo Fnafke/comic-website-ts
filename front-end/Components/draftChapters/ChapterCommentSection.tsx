@@ -2,6 +2,7 @@ import { Chapter, Comment } from "@/types";
 import { useEffect, useState } from "react";
 import DateConverter from "./DateConverter";
 import useSWR from "swr";
+import CommentService from "@/services/CommentService";
 
 type Props = {
     chapter: Chapter
@@ -12,7 +13,8 @@ const ChapterCommentSection: React.FC<Props> = ({chapter}: Props) => {
     const [listOfComments, setListOfComments] = useState<Comment[]>([]);
 
     const fetchComments = async() => {
-
+        const comments = await CommentService.getChapterComments(chapter.chapterNumber, chapter.chapterType);
+        setListOfComments(comments);
     }
 
     const {data, isLoading, error} = useSWR("comments", fetchComments);
@@ -40,36 +42,57 @@ const ChapterCommentSection: React.FC<Props> = ({chapter}: Props) => {
 
         {/* Comments List */}
         <ul className="space-y-6">
-            {listOfComments && listOfComments.length > 0 ? (
-            listOfComments.map((comment: Comment, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                {/* Avatar Placeholder */}
-                <div className="h-10 w-10 flex-shrink-0 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-sm">
-                    {comment.user?.username?.charAt(0).toUpperCase() || "?"}
+            {listOfComments.filter((comment => !comment.parentComment)).map((comment: Comment, idx) => (
+            <li key={idx} className="flex items-start gap-4">
+                {/* Avatar */}
+                <div className="h-10 w-10 flex-shrink-0 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-sm hover:opacity-90 transition">
+                {comment.user?.username?.charAt(0).toUpperCase() || "?"}
                 </div>
 
-                {/* Comment Content */}
+                {/* Main Comment */}
                 <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1">
                     <span className="text-sm font-semibold text-blue-300">{comment.user?.username}</span>
                     <span className="text-xs text-blue-400">
-                        {comment.createdAt ? <DateConverter date={comment.createdAt} /> : ""}
+                    {comment.createdAt && <DateConverter date={comment.createdAt} />}
                     </span>
-                    </div>
-                    <p className="text-sm text-white mb-2">{comment.content}</p>
-
-                    {/* Placeholder for likes/replies */}
-                    <div className="flex items-center gap-4 text-blue-400 text-xs">
-                    <button className="hover:underline">Reply</button>
-                    </div>
                 </div>
-                </li>
-            ))
-            ) : (
-            <li>
-                <p className="text-blue-300 italic">Be the first to comment!</p>
+                <p className="text-sm text-white mb-2">{comment.content}</p>
+
+                <div className="flex items-center gap-4 text-blue-400 text-xs">
+                    <button className="hover:underline transition">Reply</button>
+                </div>
+
+                {/* Replies */}
+                {comment.replies && comment.replies.length > 0 && (
+                    <ul className="mt-4 space-y-4 pl-6 border-l border-blue-700">
+                    {comment.replies.map((reply, rIdx) => (
+                        <li key={rIdx} className="flex items-start gap-3">
+                        {/* Reply Avatar */}
+                        <div className="h-8 w-8 flex-shrink-0 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-xs hover:opacity-90 transition">
+                            {reply.user?.username?.charAt(0).toUpperCase() || "?"}
+                        </div>
+
+                        {/* Reply Content */}
+                        <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                            <span className="text-sm font-semibold text-blue-300">{reply.user?.username}</span>
+                            <span className="text-xs text-blue-400">
+                                {reply.createdAt && <DateConverter date={reply.createdAt} />}
+                            </span>
+                            </div>
+                            <p className="text-sm text-white mb-2">{reply.content}</p>
+                            <div className="flex items-center gap-4 text-blue-400 text-xs">
+                            <button className="hover:underline transition">Reply</button>
+                            </div>
+                        </div>
+                        </li>
+                    ))}
+                    </ul>
+                )}
+                </div>
             </li>
-            )}
+            ))}
         </ul>
         </div>
     </> 

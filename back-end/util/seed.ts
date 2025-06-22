@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 const prisma = new PrismaClient();
 
 const main = async() => {
+    await prisma.comment.deleteMany();
     await prisma.user.deleteMany();
     await prisma.chapter.deleteMany();
 
@@ -361,7 +362,7 @@ const main = async() => {
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,5,18)).toISOString()
         }
-    })      
+    })
 }
 
 (async () => {
