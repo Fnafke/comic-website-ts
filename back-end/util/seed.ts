@@ -361,7 +361,31 @@ const main = async() => {
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,5,18)).toISOString()
         }
-    })      
+    })
+
+    const draftChapter30 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 30,
+            chapterCoverHash: 'QiGgufU',
+            chapterTitle: "Love Struck",
+            chapterDescription: "During Bambietta's troubled battle against Haschwalt, Candice fully healed herself and continued exploring the underground prison.",
+            chapterImagesHash: 'nkmspW2',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,5,27)).toISOString()
+        }
+    })
+
+    const draftChapter31 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 31,
+            chapterCoverHash: 'sf3lO84',
+            chapterTitle: "Is that all you got?",
+            chapterDescription: "Candice Catnipp versus Kisuke Urahara continues. Both getting extremely exhausted.",
+            chapterImagesHash: 'xQdp1aD',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,5,27)).toISOString()
+        }
+    }) 
 }
 
 (async () => {
