@@ -381,7 +381,7 @@ const main = async() => {
             chapterCoverHash: 'sf3lO84',
             chapterTitle: "Is that all you got?",
             chapterDescription: "Candice Catnipp versus Kisuke Urahara continues. Both getting extremely exhausted.",
-            chapterImagesHash: 'xQdp1aD',
+            chapterImagesHash: 'kRr97yC',
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,5,27)).toISOString()
         }
