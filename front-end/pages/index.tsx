@@ -7,7 +7,7 @@ const Home = () => {
   return <>
     <title>Introduction | Subvero</title>
     <Header/>
-    <Countdown chapterNumber={1} date={new Date(2025, 6, 7, 0, 0, 0)}/>
+    <Countdown chapterNumber={1} date={new Date(2026, 6, 7, 0, 0, 0)}/>
     <FadeInSection>
     <h1 className="pl-52 text-white text-7xl font-noto-serif-jp font-bold p-6 
     max-lg:p-0 max-lg:text-4xl max-lg:text-center max-lg:m-auto max-lg:pt-6">INTRODUCTION</h1>

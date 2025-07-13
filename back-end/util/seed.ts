@@ -386,7 +386,31 @@ const main = async() => {
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,5,27)).toISOString()
         }
-    }) 
+    })
+
+    const draftChapter32 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 32,
+            chapterCoverHash: 'v8Pmr01',
+            chapterTitle: "Blended",
+            chapterDescription: "After Candice cuts her arm off, she realises that Kisuke's nose is bleeding. While Candice tries to figure out what his ability does, Kisuke charges up massive Spirit Energy. Candice realised what he was doing and does the same.",
+            chapterImagesHash: '2hQDozg',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,6,12)).toISOString()
+        }
+    })
+
+    const draftChapter33 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 33,
+            chapterCoverHash: 'w25ql79',
+            chapterTitle: "Feel the electricity in the air?",
+            chapterDescription: "After Kisuke and Candice both activated their Domain Expansions, their clash continues. 2 minutes and 11 seconds remain. ",
+            chapterImagesHash: 'gwERp9l',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,6,12)).toISOString()
+        }
+    })      
 }
 
 (async () => {
