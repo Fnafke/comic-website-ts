@@ -75,7 +75,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
                 {images && images.map((image, idx) => (
                     <tr key={idx}>
                         <td className="pb-5">
-                            <img src={image.link} width={700} alt="" />
+                            <img src={image.link} width={700} alt="" loading="lazy" />
                         </td>
                     </tr>
                 ))}
