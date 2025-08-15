@@ -404,12 +404,72 @@ const main = async() => {
             chapterNumber: 33,
             chapterCoverHash: 'w25ql79',
             chapterTitle: "Feel the electricity in the air?",
-            chapterDescription: "After Kisuke and Candice both activated their Domain Expansions, their clash continues. 2 minutes and 11 seconds remain. ",
+            chapterDescription: "After Kisuke and Candice both activated their Domain Expansions, their clash continues. 2 minutes and 11 seconds remain.",
             chapterImagesHash: 'gwERp9l',
             chapterType: 'Draft',
             chapterReleaseDate: new Date(new Date().setFullYear(2025,6,12)).toISOString()
         }
-    })      
+    })
+    
+    const draftChapter34 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 34,
+            chapterCoverHash: 'aWis65S',
+            chapterTitle: "Thunderclap",
+            chapterDescription: "Kisuke seems to have knocked out Candice but she isn't giving up.",
+            chapterImagesHash: 'foSgzvp',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,7,15)).toISOString()
+        }
+    })
+ 
+    const draftChapter35 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 35,
+            chapterCoverHash: 'WbibFjb',
+            chapterTitle: "Lighting doesn't strike the same place twice",
+            chapterDescription: "Candice's Thunderclap seemed to have no effect on Kisuke and he hits her with a surprise attack.",
+            chapterImagesHash: '0pppr4P',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,7,15)).toISOString()
+        }
+    })
+
+    const draftChapter36 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 36,
+            chapterCoverHash: 'nVhRJQc',
+            chapterTitle: "Monster",
+            chapterDescription: "Candice has casted her Maximum Output Electrocution and has destroyed their entire battlefield. Their fight has concluded.",
+            chapterImagesHash: 'MJRpeTI',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,7,15)).toISOString()
+        }
+    })
+
+    const draftChapter37 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 37,
+            chapterCoverHash: 'cmYRd11',
+            chapterTitle: "A Surprise Attack",
+            chapterDescription: "Simultaneously during Kisuke and Candice's fight there's another battle happening on the surface.",
+            chapterImagesHash: 'c5yLSF5',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,7,15)).toISOString()
+        }
+    })
+
+    const draftChapter38 = await prisma.chapter.create({
+        data: {
+            chapterNumber: 38,
+            chapterCoverHash: 'BXZGo0n',
+            chapterTitle: "Love Light's Gluttony",
+            chapterDescription: "General Yamamoto surprises Liltoto and Giselle but that doesn't stop them to counter attack.",
+            chapterImagesHash: 'BXlsNE8',
+            chapterType: 'Draft',
+            chapterReleaseDate: new Date(new Date().setFullYear(2025,7,15)).toISOString()
+        }
+    })       
 }
 
 (async () => {
