@@ -73,6 +73,7 @@ const ChaptersOverview: React.FC<Props> = ({chapterType}: Props) => {
                                 width={180}
                                 height={100}
                                 alt={chapter.chapterTitle}
+                                loading="lazy"
                               />  
                               }
                             </div>
