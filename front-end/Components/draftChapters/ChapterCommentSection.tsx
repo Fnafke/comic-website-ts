@@ -17,6 +17,20 @@ const ChapterCommentSection: React.FC<Props> = ({chapter}: Props) => {
         setListOfComments(comments);
     }
 
+    const handleSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        
+        if (comment && comment.content) {
+            try {
+                const newComment = await CommentService.createComment(comment.content, null, chapter.chapterNumber, chapter.chapterType);
+                setListOfComments([...listOfComments, newComment]);
+                setComment({ ...comment, content: "" });
+            } catch (error) {
+                console.error("Error creating comment: " + error);
+            }
+        }
+    }
+
     const {data, isLoading, error} = useSWR("comments", fetchComments);
 
     return <>
@@ -24,11 +38,13 @@ const ChapterCommentSection: React.FC<Props> = ({chapter}: Props) => {
         <h3 className="text-xl font-bold text-white mb-6">Comments</h3>
 
         {/* Comment Form */}
-        <form className="flex flex-col gap-4 mb-8">
+        <form className="flex flex-col gap-4 mb-8" onSubmit={handleSubmit}>
             <textarea
             className="w-full resize-none rounded-md bg-blue-900 p-3 text-sm text-white placeholder-blue-400 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             rows={3}
             placeholder="Add a comment..."
+            value={comment?.content || ""}
+            onChange={(e) => setComment({...comment, content: e.target.value})}
             />
             <div className="flex justify-end">
             <button

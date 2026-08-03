@@ -40,6 +40,7 @@ model Comment {
     userId    Int
     chapterId Int
     content   String
+    // This is the parent comment Id. If this is the PARENT comment, then this will be null.
     commentId Int?
     createdAt DateTime
     updatedAt DateTime?

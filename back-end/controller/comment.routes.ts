@@ -12,4 +12,21 @@ commentRouter.get("/chapter/:chapterNumber/:chapterType", async(req: Request, re
     }
 })
 
+commentRouter.post("/chapter/:chapterNumber/:chapterType", async(req: Request & {auth?: any}, res: Response, next: NextFunction) => {
+    try {
+        const {content, parentCommentId} = req.body;
+        const auth = req.auth;
+
+        if (!auth?.email) {
+            throw new Error("Authentication required");
+        }
+
+        const {email} = auth;
+        const comment = await commentService.createComment(content, parentCommentId, parseInt(req.params.chapterNumber), req.params.chapterType, email)
+        res.status(200).json(comment);
+    } catch (error: any) {
+        next(error);
+    }
+})
+
 export default commentRouter;

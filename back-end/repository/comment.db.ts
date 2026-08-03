@@ -1,5 +1,6 @@
 import database from "../util/database";
 import { Comment } from "../model/comment";
+import { Chapter } from "../model/chapter";
 
 const fetchChapterComments = async(chapterNumber: number, chapterType: string): Promise<Comment[]> => {
     try {
@@ -35,6 +36,42 @@ const fetchChapterComments = async(chapterNumber: number, chapterType: string): 
     }
 }
 
+const createComment = async(content: string, parentCommentId: number | null, chapterId: number, userId: number): Promise<Comment> => {
+    try {
+        const commentPrisma = await database.comment.create({
+            data: {
+                userId: userId,
+                chapterId: chapterId,
+                content: content,
+                commentId: parentCommentId,
+                createdAt: new Date(),
+                isEdited: false
+            },
+            include: {
+                user: true,
+                chapter: true,
+                parentComment: {
+                    include: {
+                        user: true,
+                        chapter: true
+                    }
+                },
+                replies: {
+                    include: {
+                        user: true,
+                        chapter: true
+                    }
+                }
+            }
+        })
+        return Comment.from(commentPrisma as any);
+    } catch (error) {
+        console.error(error)
+        throw new Error(`Database error: Could not create comment for chapter ${chapterId}`)
+    }
+}
+
 export default {
-    fetchChapterComments
+    fetchChapterComments,
+    createComment
 }
