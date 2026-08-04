@@ -40,10 +40,17 @@ const fetchImages = async(chapterImagesHash: string): Promise<ImgurResponse> => 
                 "Authorization": `Client-ID ${process.env.NEXT_PUBLIC_CLIENT_ID}`,
             }
         });
-        return await response.json()
+        const payload = await response.json();
+
+        if (!response.ok) {
+            console.error(`Error fetching chapter images: Imgur returned ${response.status}`);
+            return { status: response.status, success: false, data: [] };
+        }
+
+        return payload;
     } catch (error: any) {
         console.error(`Error fetching chapter images: Can't fetch images on the Imgur API`)
-        throw new Error(error);
+        return { status: 0, success: false, data: [] };
     }
 }
 

@@ -13,7 +13,7 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
     const router = useRouter();
 
     const [chapter, setChapter] = useState<Chapter>();
-    const [images, setImages] = useState<ImgurImage[]>();
+    const [images, setImages] = useState<ImgurImage[]>([]);
     const [isLatest, setIsLatest] = useState<boolean>(false);
     
     const getChapter = async(chapterNumber: number, chapterType: string): Promise<Chapter> => {
@@ -26,8 +26,8 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
     const getChapterImages = async(chapter: Chapter | undefined): Promise<ImgurImage[]> => {
         if (chapter) {
             const response: ImgurResponse = await ChapterService.fetchImages(chapter.chapterImagesHash);
-            setImages(response.data)
-            return response.data
+            setImages(response.data ?? []);
+            return response.data ?? [];
         }
         return Promise.resolve([])
     }
@@ -73,13 +73,19 @@ const SingleChapterOverview: React.FC<Props> = ({chapterNumber, chapterType}: Pr
                 </tr>
             </thead>
             <tbody>
-                {images && images.map((image, idx) => (
+                {images.length > 0 ? images.map((image, idx) => (
                     <tr key={idx}>
                         <td className="pb-5">
                             <img src={image.link} width={700} alt="" loading="lazy" />
                         </td>
                     </tr>
-                ))}
+                )) : (
+                    <tr>
+                        <td className="py-10 text-center text-gray-400">
+                            Images are temporarily unavailable.
+                        </td>
+                    </tr>
+                )}
             </tbody>
 
         </table>
