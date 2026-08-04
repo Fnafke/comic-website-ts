@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import commentService from '../service/comment.service';
+import { verifyToken } from '../middleware/verifyToken';
 
 const commentRouter = express.Router();
 
@@ -12,7 +13,7 @@ commentRouter.get("/chapter/:chapterNumber/:chapterType", async(req: Request, re
     }
 })
 
-commentRouter.post("/chapter/:chapterNumber/:chapterType", async(req: Request & {auth?: any}, res: Response, next: NextFunction) => {
+commentRouter.post("/chapter/:chapterNumber/:chapterType", verifyToken, async(req: Request & {auth?: any}, res: Response, next: NextFunction) => {
     try {
         const {content, parentCommentId} = req.body;
         const auth = req.auth;

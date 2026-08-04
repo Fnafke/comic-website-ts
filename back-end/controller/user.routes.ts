@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import userService from '../service/user.service';
 import {User as UserInput} from '../types'
+import { verifyToken } from '../middleware/verifyToken';
 
 const userRouter = express.Router();
 
@@ -18,11 +19,25 @@ userRouter.get('/', async(req: Request & {auth?: any}, res: Response, next: Next
 userRouter.get('/:email', async(req: Request, res: Response, next: NextFunction) => {
     try {
         const user = await userService.getUserByEmail(req.params.email);
-        return user;
+        res.status(200).json(user);
     } catch (error: any) {
         res.status(400).json({status: "Error", errorMessage: error.message});
     }
 })
+
+userRouter.get("/profile/fetchProfile", verifyToken, async(req: Request & {auth?: any}, res: Response, next: NextFunction) => {
+    try {
+        const {email} = req.auth;
+        const user = await userService.getUserByEmail(email);
+        res.status(200).json({
+            username: user.getUsername(),
+            email: user.getEmail(),
+            role: user.getRole()
+        });
+    } catch (error: any) {
+        res.status(400).json({status: "Error", errorMessage: error.message});
+    }
+});
 
 // POST REQUESTS
 userRouter.post('/signup', async(req: Request, res: Response, next: NextFunction) => {

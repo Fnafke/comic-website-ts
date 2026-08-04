@@ -68,4 +68,10 @@ export type ImgurImage = {
     hls: string;
 }
 
+export type AuthObject = {
+    token: string;
+    email: string;
+    role: Role;
+}
+
 export type Role = 'Admin' | 'User';

@@ -19,6 +19,21 @@ const getUserByEmail = async(email: string) => {
     }
 }
 
+const getProfile = async() => {
+    try {
+        const token = getToken();
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/users/profile/fetchProfile', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return response;
+    } catch (error) {
+        console.error('Error getting user profile: ' + error);
+    }
+}
 
 // POST
 
@@ -55,5 +70,6 @@ const logIn = async(email: string, password: string) => {
 export default {
     createUser,
     getUserByEmail,
-    logIn
+    logIn,
+    getProfile,
 }

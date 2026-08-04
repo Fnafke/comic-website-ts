@@ -14,6 +14,7 @@ const getAllUsers = async(role: string): Promise<User[]> => {
 }
 
 const getUserByEmail = async(email: string): Promise<User> => {
+    console.log("user: ", email)
     const user = await userDb.getUserByEmail(email);
     
     if (!user) {
