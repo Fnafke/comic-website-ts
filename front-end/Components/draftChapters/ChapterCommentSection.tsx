@@ -1,8 +1,9 @@
 import { Chapter, Comment } from "@/types";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import DateConverter from "./DateConverter";
 import useSWR from "swr";
 import CommentService from "@/services/CommentService";
+import { AuthContext } from "../context/AuthContext";
 
 type Props = {
   chapter: Chapter;
@@ -82,6 +83,8 @@ const ChapterCommentSection: React.FC<Props> = ({ chapter }: Props) => {
   const [replyingTo, setReplyingTo] = useState<number | null>(null);
   const [replyDrafts, setReplyDrafts] = useState<Record<number, string>>({});
   const [visibleRepliesByThread, setVisibleRepliesByThread] = useState<Record<number, number>>({});
+
+  const context = useContext(AuthContext);
 
   const commentsKey = `comments-${chapter.chapterType}-${chapter.chapterNumber}`;
 
@@ -325,15 +328,21 @@ const ChapterCommentSection: React.FC<Props> = ({ chapter }: Props) => {
       )}
 
       {/* Comments List */}
-      <ul className="space-y-6">
-        {commentTree.length > 0 ? (
-          commentTree.map((comment) => renderComment(comment))
-        ) : !isLoading ? (
-          <li>
-            <p className="text-blue-300 italic">Be the first to comment!</p>
-          </li>
-        ) : null}
-      </ul>
+      {context?.user ? (
+        <ul className="space-y-6">
+            {commentTree.length > 0 ? (
+            commentTree.map((comment) => renderComment(comment))
+            ) : !isLoading ? (
+            <li>
+                <p className="text-blue-300 italic">Be the first to comment!</p>
+            </li>
+            ) : null}
+        </ul>
+        ) : (
+        <p className="text-center text-blue-300 mb-4">
+            Please log in to view and post comments.
+        </p>
+      )}
     </div>
   );
 };
