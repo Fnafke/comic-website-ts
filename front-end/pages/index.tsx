@@ -3,7 +3,7 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Countdown from "@/Components/homepage/Countdown";
 
-const Home = () => {
+const HomePage = () => {
   return <>
     <title>Introduction | Subvero</title>
     <Header/>
@@ -38,4 +38,4 @@ const Home = () => {
   </>
 }
 
-export default Home;
+export default HomePage;

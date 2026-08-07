@@ -2,7 +2,7 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import LoginForm from "@/Components/login/LoginForm";
 
-const Login: React.FC = () => {
+const LoginPage: React.FC = () => {
     return (
         <>
         <title>Login | Subvero</title>
@@ -13,4 +13,4 @@ const Login: React.FC = () => {
     );
 }
 
-export default Login;
+export default LoginPage;

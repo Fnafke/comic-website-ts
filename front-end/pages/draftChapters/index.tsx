@@ -3,7 +3,7 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 import Countdown from "@/Components/homepage/Countdown";
 
-const draftChapters: React.FC = () => {
+const draftChaptersPage: React.FC = () => {
 
     return <>
     <title>Draft Chapters | Subvero</title>
@@ -15,4 +15,4 @@ const draftChapters: React.FC = () => {
   </>
 }
 
-export default draftChapters;
+export default draftChaptersPage;

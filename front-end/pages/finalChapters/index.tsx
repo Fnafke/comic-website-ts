@@ -4,7 +4,7 @@ import Header from "@/Components/Header";
 import Countdown from "@/Components/homepage/Countdown";
 import Link from "next/dist/client/link";
 
-const finalChapters: React.FC = () => {
+const finalChaptersPage: React.FC = () => {
 
     return <>
         <title>Final Chapters | Subvero</title>
@@ -19,4 +19,4 @@ const finalChapters: React.FC = () => {
     </>
 }
 
-export default finalChapters;
+export default finalChaptersPage;
