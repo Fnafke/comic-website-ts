@@ -40,7 +40,7 @@ const ChaptersOverview: React.FC<Props> = ({ chapterType }: Props) => {
       )}
       {dataChapters && (
         <div>
-          {Array.isArray(dataChapters) ? (
+          {Array.isArray(dataChapters) && dataChapters.length > 0 ? (
             dataChapters
               .slice()
               .reverse()
@@ -52,7 +52,7 @@ const ChaptersOverview: React.FC<Props> = ({ chapterType }: Props) => {
                 />
               ))
           ) : (
-            <p>No chapters found.</p>
+            <p className="text-center text-gray-400 mt-4">No chapters found.</p>
           )}
         </div>
       )}

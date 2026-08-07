@@ -57,7 +57,7 @@ const Header: React.FC = () => {
             <Link href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Characters
             </Link>
-            <Link href={'/'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
+            <Link href={'/finalChapters'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
               Chapters
             </Link>
             <Link href={'/draftChapters'} className="font-noto-serif-jp text-blue-800 font-bold hover:text-white transition-all ease-in-out">
