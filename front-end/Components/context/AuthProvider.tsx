@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const logout = () => {
         localStorage.removeItem("loggedInUser");
         setUser(null);
-        router.push("/login");
+        router.push("/");
     }
 
     const updateUser = useCallback((updates: Partial<AuthObject>) => {
